@@ -1,0 +1,130 @@
+@import url(./global.css);
+
+/* Header */
+header{
+    background-color: var(--color-cyan);
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    gap: 15px;
+    padding: 15px;
+}
+
+header a{
+    text-decoration: none;
+    color: var(--color-black);
+    font-size: var(--font-size-p);
+    font-weight: var(--font-weight-bold);
+}
+
+/* Main */
+main{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container-main{
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.container-main img{
+    width: 430px;
+    height: 126px;
+}
+
+.content-main{
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.content-main h1{
+    width: 500px;
+}
+
+.content-main span{
+    color: var(--color-cyan);
+}
+
+.content-main p{
+    width: 450px;
+}
+
+nav ul li{
+    display: flex;
+    gap: 20px;
+}
+
+nav li{
+    list-style: none;
+}
+
+.btn-primary, .btn-secondary{
+    color: var(--color-white);
+    text-decoration: none;
+    background-color: var(--color-cyan);
+    padding: 15px 20px;
+    border-radius: 10px;
+}
+
+.btn-secondary{
+    background-color: var(--color-black);
+    border: 2px solid var(--color-cyan);
+    color: var(--color-cyan);
+}
+
+/* Section Cards */
+.section-info{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+    padding: 60px 0;
+    background-color: var(--bg-color);
+}
+
+.section-info span{
+    color: var(--color-cyan);
+}
+
+.section-cards{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 35px;
+}
+
+.card{
+    background-color: var(--bg-black);
+    padding: 30px;
+    border-radius: 50px;
+    display: flex;
+    flex-direction: column;
+}
+
+.content-cards{
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.info-card{
+    display: flex;
+    gap: 5px;
+}
+
+/* Footer */
+footer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 60px 0;
+}
+
+footer a{
+    text-decoration: none;
+    color: var(--color-cyan);
+}

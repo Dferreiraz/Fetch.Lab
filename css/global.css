@@ -1,0 +1,77 @@
+/* =========================================================
+   GLOBAL.CSS - Fetch.Lab (Menu Principal)
+   Reset, Design Tokens Base e Variáveis de Destaque Temático
+   ========================================================= */
+
+/* ---------- Reset ---------- */
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html { scroll-behavior: smooth; }
+
+img, svg {
+    display: block;
+    max-width: 100%;
+}
+
+button {
+    font: inherit;
+    cursor: pointer;
+    border: none;
+    background: none;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+ul, ol { list-style: none; }
+
+/* ---------- Design Tokens: Base (Menu Principal) ---------- */
+:root {
+    /* Cores Neutras */
+    --bg-primary: #0f172a;
+    --bg-secondary: #1e293b;
+    --bg-card: #1e293b;
+    --text-primary: #f8fafc;
+    --text-secondary: #94a3b8;
+    --border: #334155;
+    --accent: #38bdf8;
+    --accent-hover: #0ea5e9;
+
+    /* Layout e Tipografia Base */
+    --container-width: 1160px;
+    --radius-sm: 6px;
+    --radius-md: 14px;
+    --font-main: system-ui, -apple-system, sans-serif;
+
+    /* ---------- Cores de Destaque Temático (Para os Cards do Menu) ---------- */
+    --naruto-color: #ff6a13;
+    --jjk-color: #8b2fd1;
+    --rm-color: #11B0C8;
+    --db-color: #ffcc00;
+}
+
+/* ---------- Estilos Base ---------- */
+body {
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+    font-family: var(--font-main);
+    font-size: 16px;
+    line-height: 1.6;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    -webkit-font-smoothing: antialiased;
+}
+
+.container {
+    width: 100%;
+    max-width: var(--container-width);
+    margin: 0 auto;
+    padding: 0 1.5rem;
+}

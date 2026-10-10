@@ -1,0 +1,39 @@
+/* =========================================================
+   GLOBAL.CSS - Rick And Morty
+   Reset, design tokens (variáveis) e estilos base do projeto
+   ========================================================= */
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root{
+    /* Cores */
+    --color-cyan: #11B0C8;
+    --color-black: #000;
+    --color-white: #fff;
+    --bg-black: #000;
+    --bg-color: #1A1A1A;
+
+    /* Tamanho da fonte */
+    --font-size-h1: 40px;
+    --font-size-h2: 40px;
+    --font-size-h3: 20px;
+    --font-size-p: 20px;
+
+    /* Espessura da fonte */
+    --font-weight-bold: 700;
+    --font-weight-regular: 400;
+
+    /* Familía da fonte */
+    --font-primary: "Poppins", sans-serif;
+
+}
+
+body{
+    background-color: var(--bg-black);
+    font-family: var(--font-primary);
+    color: #fff;
+}
