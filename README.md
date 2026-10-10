@@ -239,4 +239,4 @@ Desenvolvido por **Davi Ferreira** como parte da jornada de aprendizado em desen
 
 <p align="center">
   <em>Aprendendo na prática, uma requisição de cada vez.</em>
-</p>
+
