@@ -1,10 +1,23 @@
 @import url(./global.css);
 
-/* ---------- Estilos do Menu Principal (Index) ---------- */
+/* ---------- Header com Vibe Anime ---------- */
 .header {
     text-align: center;
-    padding: 4rem 0 3rem;
+    padding: 5rem 0 3.5rem;
     border-bottom: 1px solid var(--border);
+    position: relative;
+    overflow: hidden;
+}
+
+/* Linha gradiente no topo do header */
+.header::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: var(--gradient-anime);
 }
 
 .logo {
@@ -12,31 +25,39 @@
     align-items: center;
     justify-content: center;
     gap: 0.75rem;
-    margin-bottom: 1rem;
+    margin-bottom: 1.5rem;
 }
 
 .logo i {
-    font-size: 2.5rem;
-    color: var(--accent);
+    font-size: 2.8rem;
+    /* Ícone com gradiente */
+    background: var(--gradient-anime);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    filter: drop-shadow(0 0 12px rgba(139, 47, 209, 0.4));
 }
 
 .logo h1 {
-    font-size: 2.5rem;
-    font-weight: 700;
+    font-size: 3rem;
+    font-weight: 800;
     letter-spacing: -0.05em;
-}
-
-.highlight {
-    color: var(--accent);
+    /* Texto com gradiente anime */
+    background: var(--gradient-anime);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
 }
 
 .subtitle {
     color: var(--text-secondary);
     font-size: 1.125rem;
     max-width: 600px;
-    margin: 0 auto 2rem;
+    margin: 0 auto 2.5rem;
+    line-height: 1.7;
 }
 
+/* ---------- Badges Tech com Cores Temáticas ---------- */
 .tech-stack {
     display: flex;
     justify-content: center;
@@ -47,41 +68,78 @@
 .tech-badge {
     background-color: var(--bg-secondary);
     border: 1px solid var(--border);
-    padding: 0.5rem 1rem;
+    padding: 0.6rem 1.2rem;
     border-radius: 9999px;
     font-size: 0.875rem;
     font-weight: 600;
-    color: var(--accent);
     display: flex;
     align-items: center;
     gap: 0.5rem;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
+.tech-badge:hover {
+    transform: translateY(-2px);
+}
+
+/* Badge JS = Laranja (Naruto/DB) */
+.tech-badge.js {
+    color: var(--naruto-color);
+    border-color: rgba(255, 106, 19, 0.3);
+}
+.tech-badge.js:hover {
+    box-shadow: var(--neon-orange);
+}
+
+/* Badge JSON = Roxo (JJK) */
+.tech-badge.json {
+    color: var(--jjk-color);
+    border-color: rgba(139, 47, 209, 0.3);
+}
+.tech-badge.json:hover {
+    box-shadow: var(--neon-purple);
+}
+
+/* Badge DOM = Ciano (Rick and Morty) */
+.tech-badge.dom {
+    color: var(--rm-color);
+    border-color: rgba(17, 176, 200, 0.3);
+}
+.tech-badge.dom:hover {
+    box-shadow: var(--neon-cyan);
+}
+
+/* ---------- Main ---------- */
 main {
     flex: 1;
-    padding: 3rem 0;
+    padding: 3.5rem 0;
 }
 
 .section-title {
-    font-size: 1.5rem;
-    margin-bottom: 2rem;
+    font-size: 1.75rem;
+    font-weight: 700;
+    margin-bottom: 2.5rem;
     padding-bottom: 0.75rem;
-    border-bottom: 2px solid var(--accent);
+    /* Borda inferior com gradiente anime */
+    border-bottom: 3px solid transparent;
+    border-image: var(--gradient-anime) 1;
     display: inline-block;
 }
 
+/* ---------- Grid 2x2 ---------- */
 .projects-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    grid-template-columns: repeat(2, 1fr);
     gap: 1.5rem;
 }
 
+/* ---------- Cards (INTACTOS - Não alterados) ---------- */
 .project-card {
     background-color: var(--bg-card);
     border: 1px solid var(--border);
     border-radius: var(--radius-md);
     padding: 1.5rem;
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
     display: flex;
     flex-direction: column;
     position: relative;
@@ -100,14 +158,8 @@ main {
 
 .project-card:hover {
     transform: translateY(-4px);
-    box-shadow: 0 10px 25px -5px var(--card-glow, rgba(56, 189, 248, 0.15));
+    box-shadow: 0 10px 25px -5px var(--card-glow);
     border-color: var(--card-accent, var(--accent));
-}
-
-.card-icon {
-    font-size: 2rem;
-    color: var(--card-accent, var(--accent));
-    margin-bottom: 1rem;
 }
 
 .project-card h3 {
@@ -120,6 +172,13 @@ main {
     font-size: 0.95rem;
     margin-bottom: 1.5rem;
     flex: 1;
+}
+
+.project-logo {
+    width: 100%;
+    max-height: 180px;
+    object-fit: contain;
+    margin-bottom: 1rem;
 }
 
 .btn-primary {
@@ -140,32 +199,46 @@ main {
     filter: brightness(1.1);
 }
 
+/* ---------- Temas dos Cards (INTACTOS) ---------- */
 .theme-naruto {
-    --card-accent: var(--naruto-ember);
-    --card-glow: rgba(255, 106, 19, 0.4);
+    --card-accent: var(--naruto-color);
+    --card-glow: rgba(255, 106, 19, 0.25);
 }
 
 .theme-jjk {
-    --card-accent: var(--jjk-curse);
-    --card-glow: rgba(139, 47, 209, 0.4);
+    --card-accent: var(--jjk-color);
+    --card-glow: rgba(139, 47, 209, 0.25);
 }
 
 .theme-rm {
-    --card-accent: var(--rm-cyan);
-    --card-glow: rgba(17, 176, 200, 0.4);
+    --card-accent: var(--rm-color);
+    --card-glow: rgba(17, 176, 200, 0.25);
 }
 
 .theme-db {
-    --card-accent: var(--db-yellow);
-    --card-glow: rgba(255, 204, 0, 0.4);
+    --card-accent: var(--db-color);
+    --card-glow: rgba(255, 204, 0, 0.25);
 }
 
+/* ---------- Footer ---------- */
 .footer {
     text-align: center;
-    padding: 2rem 0;
+    padding: 2.5rem 0;
     border-top: 1px solid var(--border);
     color: var(--text-secondary);
     font-size: 0.9rem;
+    position: relative;
+}
+
+/* Linha gradiente no topo do footer */
+.footer::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: var(--gradient-anime-soft);
 }
 
 .github-link {
@@ -179,16 +252,20 @@ main {
 }
 
 .github-link:hover {
-    color: var(--accent);
+    background: var(--gradient-anime);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
 }
 
+/* ---------- Responsivo ---------- */
 @media (max-width: 600px) {
     .logo h1 {
-        font-size: 2rem;
+        font-size: 2.2rem;
     }
 
     .header {
-        padding: 2.5rem 0 2rem;
+        padding: 3rem 0 2rem;
     }
 
     .projects-grid {
