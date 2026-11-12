@@ -172,20 +172,30 @@ const renderDemo = (message, detail) => {
     container.querySelector("[data-retry]").addEventListener("click", loadCharacters)
 }
 
-const describeError = (error) => {
-    if (error?.name === "AbortError") {
+// Falhas operacionais previsíveis (rede, HTTP, timeout) são tratadas pelo modo
+// demonstração e registradas como informação. Só um erro de programação
+// inesperado deve chegar ao console como erro.
+const classifyError = (error) => {
+    if (error?.name === "AbortError") return "timeout"
+    if (error?.kind === "http") return "http"
+    if (error?.kind === "network") return "network"
+    return "unexpected"
+}
+
+const describeError = (kind, error) => {
+    if (kind === "timeout") {
         return {
             message: `A API Jikan demorou mais de ${REQUEST_TIMEOUT_MS / 1000} segundos para responder.`,
             detail: "Tempo esgotado"
         }
     }
-    if (error?.kind === "http") {
+    if (kind === "http") {
         return {
             message: `A API Jikan respondeu com erro (HTTP ${error.status}).`,
             detail: `Erro HTTP ${error.status}`
         }
     }
-    if (error instanceof TypeError) {
+    if (kind === "network") {
         return {
             message: "Não foi possível conectar à API Jikan. Verifique sua conexão.",
             detail: "Falha de rede"
@@ -207,10 +217,23 @@ async function loadCharacters() {
     renderLoading()
 
     try {
-        const response = await fetch(API_URL, {
-            signal: controller.signal,
-            headers: { Accept: "application/json" }
-        })
+        let response
+        try {
+            response = await fetch(API_URL, {
+                signal: controller.signal,
+                headers: { Accept: "application/json" }
+            })
+        } catch (fetchError) {
+            // O timeout também chega aqui como AbortError; ele mantém o tipo
+            // original para ser classificado como tempo esgotado.
+            if (fetchError?.name === "AbortError") throw fetchError
+            // `fetch` só rejeita com TypeError em falha de rede. Marcamos o erro
+            // para não confundir essa falha esperada com um TypeError de bug.
+            const networkError = new Error("Falha de rede ao consultar a API Jikan")
+            networkError.kind = "network"
+            networkError.cause = fetchError
+            throw networkError
+        }
 
         // Impede que uma resposta antiga sobrescreva a tentativa mais recente.
         if (requestId !== activeRequestId) return
@@ -238,9 +261,14 @@ async function loadCharacters() {
         renderCards(data.data.slice(0, MAX_CHARACTERS))
     } catch (error) {
         if (requestId !== activeRequestId) return
-        const { message, detail } = describeError(error)
+        const kind = classifyError(error)
+        const { message, detail } = describeError(kind, error)
         renderDemo(message, detail)
-        console.error("Falha ao carregar a API Jikan:", error)
+        if (kind === "unexpected") {
+            console.error("Erro inesperado ao carregar a API Jikan:", error)
+        } else {
+            console.info(`[Jujutsu Kaisen] Modo demonstração ativado: ${detail}.`)
+        }
     } finally {
         clearTimeout(timeout)
     }

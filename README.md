@@ -62,7 +62,7 @@ O laboratório reúne quatro aplicações independentes, cada uma utilizando uma
 | Projeto | API utilizada | Conceitos principais | Acessar |
 |---|---|---|---|
 | **Dragon Ball** | Dragon Ball API | Requisições GET, renderização de listas e grid responsivo com 58 personagens. | [Abrir projeto](./dragonball/) |
-| **Jujutsu Kaisen** | Jikan API | Manipulação de arrays, estados de carregamento e fallback local com dados de demonstração. | [Abrir projeto](./jujutsukaisen/) |
+| **Jujutsu Kaisen** | Jikan API | Manipulação de arrays, estados de carregamento e modo de demonstração. | [Abrir projeto](./jujutsukaisen/) |
 | **Naruto** | Dattebayo API | Consumo de endpoints, normalização de imagens e campos nulos. | [Abrir projeto](./naruto/) |
 | **Rick and Morty** | Rick and Morty API | Manipulação de objetos aninhados e tratamento de campos ausentes. | [Abrir projeto](./rickandmorty/) |
 
@@ -74,7 +74,7 @@ Além das aplicações individuais, o repositório possui uma página principal 
 - **Consumo de APIs REST** com `fetch`, `async/await` e renderização dinâmica de cards.
 - **Estados de carregamento, erro, vazio e nova tentativa** em todos os projetos.
 - **Timeout explícito** para evitar espera indefinida (12 s em Naruto, Jujutsu Kaisen e Rick and Morty; 15 s em Dragon Ball).
-- **Fallback local do Jujutsu Kaisen** quando a Jikan não responde.
+- **Modo de demonstração no Jujutsu Kaisen** quando a API não responde.
 - **Layout responsivo** com Tailwind CSS, sem overflow horizontal em desktop, tablet e mobile.
 - **Acessibilidade básica**: navegação por teclado, foco visível, `aria-current`, `role="status"`/`role="alert"` e link de salto na home.
 
@@ -90,18 +90,9 @@ Os quatro projetos compartilham o mesmo contrato de estados, sem unificar os nor
 - **Estado vazio** com mensagem própria.
 - **Fallback de imagem** com SVG local e iniciais do personagem quando a imagem falha.
 
-Valores ausentes são tratados antes de chegar ao DOM: `escapeHtml` protege todo texto dinâmico, `textOr` lida com nulos e arrays, e o Naruto exibe “Clã não informado” quando o campo vem vazio.
+Valores ausentes são tratados antes de chegar ao DOM: `escapeHtml` protege todo texto dinâmico, `textOr` lida com nulos e arrays, e campos vazios recebem rótulos de indisponibilidade.
 
-### 🛡️ Fallback do Jujutsu Kaisen
-
-A API Jikan pode ficar indisponível. Nesse caso, o projeto exibe seis personagens de demonstração (Yuji Itadori, Megumi Fushiguro, Nobara Kugisaki, Satoru Gojo, Maki Zenin e Kento Nanami) com:
-
-- banner **“Modo demonstração”** com a causa da falha;
-- aviso explícito de que são **dados locais de exemplo, não uma resposta da API**;
-- selo “Demonstração” em cada card e avatares SVG gerados localmente;
-- botão **“Tentar carregar a API novamente”**.
-
-Se a Jikan responder com JSON em formato inesperado, o projeto mostra erro de contrato em vez de dados locais — o fallback é usado apenas para indisponibilidade.
+Cada projeto tem um README próprio com os detalhes da sua integração. O Jujutsu Kaisen, em especial, mantém um modo de demonstração documentado em [`jujutsukaisen/README.md`](./jujutsukaisen/README.md).
 
 ---
 
@@ -243,10 +234,8 @@ Essa estrutura permite desenvolver, testar e evoluir cada projeto de forma indep
 ## ⚠️ Limitações conhecidas
 
 - **Tailwind Play CDN:** compila em tempo de execução, depende de rede e não é indicado para produção madura; emite um aviso no console. A versão está fixada em `3.4.17`.
-- **Jikan:** pode ficar indisponível ou lenta. O caminho de sucesso foi validado por contrato e replay controlado, não por uma resposta real durante a Etapa 3.
-- **Imagens da wikia (Naruto):** alguns servidores de imagem bloqueiam requisições fora do navegador; a validação visual depende do Chrome.
-- **Jiraiya:** a única imagem do personagem responde `404` e a wikia devolve um placeholder que ainda decodifica, então o fallback SVG não é acionado.
-- **Dados de demonstração do JJK:** são seis personagens ilustrativos, não um retrato completo do elenco.
+- **APIs externas:** podem ficar indisponíveis, lentas ou mudar de formato. Cada projeto trata esses casos com timeout, mensagem de erro e nova tentativa.
+- **Imagens de terceiros:** alguns servidores de imagem bloqueiam requisições fora do navegador; a validação visual depende do Chrome.
 - **Sem suíte de testes automatizada:** a validação é manual, por checklist e navegador.
 - **Fora de escopo:** busca, filtros, paginação e páginas de detalhe não fazem parte da versão atual.
 

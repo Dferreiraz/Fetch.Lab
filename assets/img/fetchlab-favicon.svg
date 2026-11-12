@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Fetch.Lab">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#131829"/>
+      <stop offset="1" stop-color="#0a0e1a"/>
+    </linearGradient>
+    <linearGradient id="line" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#38bdf8"/>
+      <stop offset="1" stop-color="#8b2fd1"/>
+    </linearGradient>
+  </defs>
+  <rect width="64" height="64" rx="14" fill="url(#bg)"/>
+  <g stroke="url(#line)" stroke-width="4" stroke-linecap="round" fill="none">
+    <path d="M32 17 18 44"/>
+    <path d="M32 17 46 44"/>
+    <path d="M18 44h28"/>
+  </g>
+  <circle cx="32" cy="17" r="7" fill="#38bdf8"/>
+  <circle cx="18" cy="44" r="6" fill="#8b2fd1"/>
+  <circle cx="46" cy="44" r="6" fill="#11b0c8"/>
+</svg>

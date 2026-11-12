@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Jujutsu Kaisen">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#8b2fd1"/>
+      <stop offset="1" stop-color="#43126e"/>
+    </linearGradient>
+  </defs>
+  <rect width="64" height="64" rx="14" fill="url(#bg)"/>
+  <g fill="none" stroke="#f0ecf5" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="11" y="27" width="17" height="18" rx="1" stroke-width="4.2"/>
+    <rect x="38" y="18" width="16" height="15" rx="1" stroke-width="4.2"/>
+    <path d="M40 37c0 8-1.6 12-5.2 16" stroke-width="4.2"/>
+    <path d="M51 37c.6 7 2.4 11 5.4 14" stroke-width="4.2"/>
+  </g>
+</svg>
