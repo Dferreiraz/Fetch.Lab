@@ -1,0 +1,162 @@
+{
+  "checkedAt": "2026-11-12T19:35:50.557Z",
+  "environment": "Windows, Node.js local, sem proxy",
+  "endpoints": [
+    {
+      "project": "Dragon Ball",
+      "url": "https://dragonball-api.com/api/characters?limit=58",
+      "checkedAt": "2026-11-12T19:35:38.962Z",
+      "status": 200,
+      "ok": true,
+      "durationMs": 741,
+      "contentType": "application/json; charset=utf-8",
+      "corsAllowOrigin": null,
+      "payloadKey": "items",
+      "itemCount": 58,
+      "meta": {
+        "totalItems": 58,
+        "itemCount": 58,
+        "itemsPerPage": 58,
+        "totalPages": 1,
+        "currentPage": 1
+      },
+      "pagination": null,
+      "narutoPagination": null,
+      "sampleKeys": [
+        "id",
+        "name",
+        "ki",
+        "maxKi",
+        "race",
+        "gender",
+        "description",
+        "image",
+        "affiliation",
+        "deletedAt"
+      ],
+      "error": null
+    },
+    {
+      "project": "Naruto",
+      "url": "https://dattebayo-api.onrender.com/characters",
+      "checkedAt": "2026-11-12T19:35:39.177Z",
+      "status": 200,
+      "ok": true,
+      "durationMs": 214,
+      "contentType": "application/json; charset=utf-8",
+      "corsAllowOrigin": "*",
+      "payloadKey": "characters",
+      "itemCount": 20,
+      "meta": null,
+      "pagination": null,
+      "narutoPagination": {
+        "currentPage": 1,
+        "pageSize": 20,
+        "total": 1431
+      },
+      "sampleKeys": [
+        "id",
+        "name",
+        "images",
+        "debut",
+        "family",
+        "jutsu",
+        "natureType",
+        "personal",
+        "rank",
+        "tools",
+        "voiceActors"
+      ],
+      "error": null
+    },
+    {
+      "project": "Jujutsu Kaisen (Jikan)",
+      "url": "https://api.jikan.moe/v4/anime/40748/characters",
+      "checkedAt": "2026-11-12T19:35:49.655Z",
+      "status": null,
+      "ok": false,
+      "durationMs": 10478,
+      "contentType": null,
+      "corsAllowOrigin": null,
+      "payloadKey": "data",
+      "itemCount": null,
+      "meta": null,
+      "pagination": null,
+      "narutoPagination": null,
+      "sampleKeys": null,
+      "error": "TypeError: fetch failed"
+    },
+    {
+      "project": "Rick and Morty",
+      "url": "https://rickandmortyapi.com/api/character",
+      "checkedAt": "2026-11-12T19:35:49.721Z",
+      "status": 200,
+      "ok": true,
+      "durationMs": 66,
+      "contentType": "application/json; charset=utf-8",
+      "corsAllowOrigin": "*",
+      "payloadKey": "results",
+      "itemCount": 20,
+      "meta": null,
+      "pagination": {
+        "count": 826,
+        "pages": 42,
+        "next": "https://rickandmortyapi.com/api/character?page=2",
+        "prev": null
+      },
+      "narutoPagination": null,
+      "sampleKeys": [
+        "id",
+        "name",
+        "status",
+        "species",
+        "type",
+        "gender",
+        "origin",
+        "location",
+        "image",
+        "episode",
+        "url",
+        "created"
+      ],
+      "error": null
+    }
+  ],
+  "githubPages": [
+    {
+      "url": "https://dferreiraz.github.io/Fetch.Lab/",
+      "status": 200,
+      "ok": true,
+      "durationMs": 192,
+      "contentType": "text/html; charset=utf-8"
+    },
+    {
+      "url": "https://dferreiraz.github.io/Fetch.Lab/naruto/",
+      "status": 200,
+      "ok": true,
+      "durationMs": 156,
+      "contentType": "text/html; charset=utf-8"
+    },
+    {
+      "url": "https://dferreiraz.github.io/Fetch.Lab/jujutsukaisen/",
+      "status": 200,
+      "ok": true,
+      "durationMs": 173,
+      "contentType": "text/html; charset=utf-8"
+    },
+    {
+      "url": "https://dferreiraz.github.io/Fetch.Lab/rickandmorty/",
+      "status": 200,
+      "ok": true,
+      "durationMs": 156,
+      "contentType": "text/html; charset=utf-8"
+    },
+    {
+      "url": "https://dferreiraz.github.io/Fetch.Lab/dragonball/",
+      "status": 200,
+      "ok": true,
+      "durationMs": 159,
+      "contentType": "text/html; charset=utf-8"
+    }
+  ]
+}

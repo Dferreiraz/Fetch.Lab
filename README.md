@@ -159,13 +159,11 @@ cd Fetch.Lab
 code .
 ```
 
-### 4. Execute no navegador
+### 4. Execute com um servidor estático
 
-Você pode abrir o arquivo `index.html` localizado na raiz para acessar a página principal e navegar pelos projetos.
+Sirva a pasta raiz do repositório com um servidor estático e acesse `index.html` pelo endereço local gerado. A extensão **Live Server** no VS Code é a opção mais simples; alternativas incluem `python -m http.server` ou qualquer servidor estático de sua preferência.
 
-Também é possível abrir diretamente o arquivo `index.html` de qualquer uma das pastas temáticas.
-
-Para facilitar a execução e os testes, recomenda-se utilizar a extensão **Live Server** no VS Code.
+> **Importante:** a evolução do projeto adota **módulos ES nativos**. A partir da introdução desses módulos, abrir os arquivos diretamente via `file://` não será o fluxo suportado, pois o navegador bloqueia imports de módulos nesse protocolo. O desenvolvimento local deve ser feito com um servidor estático, como o Live Server.
 
 > **Observação:** como os projetos dependem de APIs externas, é necessário ter conexão com a internet. A disponibilidade dos dados também depende do funcionamento de cada serviço e das configurações de acesso da respectiva API.
 
@@ -219,6 +217,17 @@ Fetch.Lab/
 A organização separa os estilos globais da página principal e mantém cada aplicação temática com seus próprios arquivos HTML, CSS, JavaScript e recursos visuais.
 
 Essa estrutura permite desenvolver, testar e evoluir cada projeto de forma independente dentro do mesmo repositório.
+
+---
+
+## 🧭 Decisões e baseline
+
+A evolução do projeto é documentada em etapas. A Etapa 1 registra o estado atual, as decisões arquiteturais e o baseline visual antes de qualquer mudança estrutural.
+
+- [Inventário da Etapa 1](./docs/etapa-1/inventario.md)
+- [Decisões técnicas](./docs/etapa-1/decisoes.md)
+- [Baseline visual](./docs/etapa-1/baseline/README.md)
+- [Verificação das APIs](./docs/etapa-1/api-check.json)
 
 ---
 

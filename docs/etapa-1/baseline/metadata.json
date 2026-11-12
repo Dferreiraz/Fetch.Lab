@@ -1,0 +1,775 @@
+{
+  "capturedAt": "2026-11-12T19:33:27.239Z",
+  "baseUrl": "http://127.0.0.1:8765",
+  "chrome": {
+    "Browser": "Chrome/157.0.8103.51",
+    "File-Path-Style": "windows",
+    "Protocol-Version": "1.3",
+    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/157.0.0.0 Safari/537.36",
+    "V8-Version": "15.7.112.23",
+    "WebKit-Version": "537.36 (@653674df293788cf4932c40d914e9e15b41a2d31)",
+    "webSocketDebuggerUrl": "ws://127.0.0.1:9222/devtools/browser/14606eef-7571-484e-973a-b4d555b0a307"
+  },
+  "viewports": [
+    {
+      "slug": "desktop",
+      "width": 1440,
+      "height": 900,
+      "deviceScaleFactor": 1,
+      "mobile": false
+    },
+    {
+      "slug": "mobile",
+      "width": 390,
+      "height": 844,
+      "deviceScaleFactor": 2,
+      "mobile": true
+    }
+  ],
+  "pages": [
+    {
+      "slug": "home",
+      "name": "Pagina principal",
+      "url": "http://127.0.0.1:8765/",
+      "viewport": "desktop",
+      "viewportWidth": 1440,
+      "viewportHeight": 900,
+      "deviceScaleFactor": 1,
+      "captureMode": "full-page",
+      "contentHeight": 1343,
+      "contentWidth": 1425,
+      "screenshot": "docs/etapa-1/baseline/desktop/home.jpg",
+      "screenshotBytes": 168413,
+      "state": {
+        "title": "Fetch.Lab | Davi Ferreira",
+        "cards": 0,
+        "bodyText": "Fetch.Lab Laboratório de consumo de APIs REST e manipulação do DOM. Dados externos transformados em interfaces dinâmicas. JavaScript (Fetch API) JSON DOM Manipulation Projetos do Laboratório Consumo de endpoints, tratamento de imagens e estados de loading com a Naruto API. Acessar Projeto Filtragem de dados, manipulação de arrays e exibição de detalhes com a Jujutsu Kaisen API. Acessar Projeto Paginação, busca avançada e manipulação de objetos aninhados com a Rick and Morty API. Acessar Projeto Requisição GET, renderização de listas e cards de personagens com a Dragon Ball API. Acessar Projeto Desenvolvido por Davi Ferreira Ver perfil no GitHub",
+        "scrollWidth": 1425,
+        "clientWidth": 1425,
+        "scrollHeight": 1343,
+        "imageStats": [
+          {
+            "src": "http://127.0.0.1:8765/naruto/assets/img/naruto-logo.svg",
+            "complete": true,
+            "naturalWidth": 986,
+            "naturalHeight": 420
+          },
+          {
+            "src": "http://127.0.0.1:8765/jujutsukaisen/assets/img/jujutsukaisen-logo.svg",
+            "complete": true,
+            "naturalWidth": 960,
+            "naturalHeight": 243
+          },
+          {
+            "src": "http://127.0.0.1:8765/rickandmorty/assets/img/RickandMorty.svg",
+            "complete": true,
+            "naturalWidth": 430,
+            "naturalHeight": 126
+          },
+          {
+            "src": "http://127.0.0.1:8765/dragonball/assets/img/Dragon_Ball_Z_logo.svg",
+            "complete": true,
+            "naturalWidth": 3780,
+            "naturalHeight": 964
+          }
+        ]
+      }
+    },
+    {
+      "slug": "naruto",
+      "name": "Naruto",
+      "url": "http://127.0.0.1:8765/naruto/",
+      "viewport": "desktop",
+      "viewportWidth": 1440,
+      "viewportHeight": 900,
+      "deviceScaleFactor": 1,
+      "captureMode": "full-page",
+      "contentHeight": 4082,
+      "contentWidth": 1425,
+      "screenshot": "docs/etapa-1/baseline/desktop/naruto.jpg",
+      "screenshotBytes": 450074,
+      "state": {
+        "title": "Naruto API · Registro Shinobi",
+        "cards": 20,
+        "bodyText": "Dattebayo.API DFerreira Bem-vindos ao Consumo de API do Naruto Aqui você encontra informações sobre os personagens de Naruto Veja agora Saiba mais BINGO BOOK · REGISTRO SHINOBI Nossos personagens Naruto Uzumaki Konohagakure Uzumaki Sasuke Uchiha Konohagakure Uchiha Madara Uchiha Konohagakure Uchiha Kakashi Hatake Konohagakure Hatake Orochimaru Konohagakure undefined Obito Uchiha Konohagakure Uchiha Gaara Sunagakure Kazekage (Novel only) Kabuto Yakushi Konohagakure undefined Jiraiya Konohagakure undefined Yamato Konohagakure undefined Might Guy Konohagakure undefined Konohamaru Sarutobi Konohagakure Sarutobi Mitsuki Otogakure undefined Minato Namikaze Konohagakure undefined Boruto Uzumaki Kon",
+        "scrollWidth": 1425,
+        "clientWidth": 1425,
+        "scrollHeight": 4082,
+        "imageStats": [
+          {
+            "src": "http://127.0.0.1:8765/naruto/assets/img/naruto.svg",
+            "complete": true,
+            "naturalWidth": 1080,
+            "naturalHeight": 1944
+          },
+          {
+            "src": "http://127.0.0.1:8765/naruto/assets/img/naruto-logo.svg",
+            "complete": true,
+            "naturalWidth": 986,
+            "naturalHeight": 420
+          },
+          {
+            "src": "https://static.wikia.nocookie.net/naruto/images/d/d6/Naruto_Part_I.png,https://static.wikia.nocookie.net/naruto/images/7/7d/Naruto_Part_II.png",
+            "complete": true,
+            "naturalWidth": 300,
+            "naturalHeight": 171
+          },
+          {
+            "src": "https://static.wikia.nocookie.net/naruto/images/2/21/Sasuke_Part_1.png,https://static.wikia.nocookie.net/naruto/images/1/13/Sasuke_Part_2.png",
+            "complete": true,
+            "naturalWidth": 300,
+            "naturalHeight": 171
+          },
+          {
+            "src": "https://static.wikia.nocookie.net/naruto/images/f/fd/Madara.png",
+            "complete": true,
+            "naturalWidth": 1440,
+            "naturalHeight": 1080
+          },
+          {
+            "src": "https://static.wikia.nocookie.net/naruto/images/2/27/Kakashi_Hatake.png,https://static.wikia.nocookie.net/naruto/images/2/25/Kakashi_Part_III.png",
+            "complete": true,
+            "naturalWidth": 300,
+            "naturalHeight": 171
+          },
+          {
+            "src": "https://static.wikia.nocookie.net/naruto/images/1/14/Orochimaru_Infobox.png,https://static.wikia.nocookie.net/naruto/images/b/be/Orochimaru_Part_III.png",
+            "complete": true,
+            "naturalWidth": 300,
+            "naturalHeight": 171
+          },
+          {
+            "src": "https://static.wikia.nocookie.net/naruto/images/4/4a/Obito_Uchiha.png,https://static.wikia.nocookie.net/naruto/images/3/3c/Obito.png",
+            "complete": true,
+            "naturalWidth": 300,
+            "naturalHeight": 171
+          },
+          {
+            "src": "https://static.wikia.nocookie.net/naruto/images/2/20/Gaara_in_Part_I.png,https://static.wikia.nocookie.net/naruto/images/0/0f/Gaara_Part_II.png",
+            "complete": true,
+            "naturalWidth": 300,
+            "naturalHeight": 171
+          },
+          {
+            "src": "https://static.wikia.nocookie.net/naruto/images/c/c9/Kabuto_Part_1.png,https://static.wikia.nocookie.net/naruto/images/0/0b/Kabuto_Part_II.png",
+            "complete": true,
+            "naturalWidth": 300,
+            "naturalHeight": 171
+          },
+          {
+            "src": "https://static.wikia.nocookie.net/naruto/images/2/21/Profile_Jiraiya.png",
+            "complete": true,
+            "naturalWidth": 300,
+            "naturalHeight": 171
+          },
+          {
+            "src": "https://static.wikia.nocookie.net/naruto/images/f/f7/Yamato_newshot.png,https://static.wikia.nocookie.net/naruto/images/4/48/Yamato_Part_III.png",
+            "complete": true,
+            "naturalWidth": 300,
+            "naturalHeight": 171
+          }
+        ]
+      }
+    },
+    {
+      "slug": "jujutsukaisen",
+      "name": "Jujutsu Kaisen",
+      "url": "http://127.0.0.1:8765/jujutsukaisen/",
+      "viewport": "desktop",
+      "viewportWidth": 1440,
+      "viewportHeight": 900,
+      "deviceScaleFactor": 1,
+      "captureMode": "full-page",
+      "contentHeight": 1244,
+      "contentWidth": 1425,
+      "screenshot": "docs/etapa-1/baseline/desktop/jujutsukaisen.jpg",
+      "screenshotBytes": 141765,
+      "state": {
+        "title": "Jujutsu Kaisen",
+        "cards": 0,
+        "bodyText": "Jujutsu.API DFerreira Bem-vindos ao Registro de Feiticeiros de Jujutsu Kaisen Aqui você encontra informações sobre os feiticeiros e curses de Jujutsu Kaisen Veja agora Saiba mais REGISTRO DE FEITICEIROS · COLÉGIO DE TÓQUIO Nossos feiticeiros Erro ao carregar os dados. Tente atualizar a página. Desenvolvido por Davi Ferreira",
+        "scrollWidth": 1425,
+        "clientWidth": 1425,
+        "scrollHeight": 1244,
+        "imageStats": [
+          {
+            "src": "http://127.0.0.1:8765/jujutsukaisen/assets/img/img-jujutsukaisen.svg",
+            "complete": true,
+            "naturalWidth": 560,
+            "naturalHeight": 700
+          },
+          {
+            "src": "http://127.0.0.1:8765/jujutsukaisen/assets/img/jujutsukaisen-logo.svg",
+            "complete": true,
+            "naturalWidth": 960,
+            "naturalHeight": 243
+          }
+        ]
+      }
+    },
+    {
+      "slug": "rickandmorty",
+      "name": "Rick and Morty",
+      "url": "http://127.0.0.1:8765/rickandmorty/",
+      "viewport": "desktop",
+      "viewportWidth": 1440,
+      "viewportHeight": 900,
+      "deviceScaleFactor": 1,
+      "captureMode": "full-page",
+      "contentHeight": 3645,
+      "contentWidth": 1485,
+      "screenshot": "docs/etapa-1/baseline/desktop/rickandmorty.jpg",
+      "screenshotBytes": 640176,
+      "state": {
+        "title": "Rick e Morty",
+        "cards": 20,
+        "bodyText": "Dferreira Bem-vindos ao consumo de API do Rick and Morty Aqui você encontra informações sobre os personagens de Rick and Morty. Veja agora Saiba mais Nossos Personagens Rick Sanchez Human Alive Earth (C-137) Morty Smith Human Alive unknown Summer Smith Human Alive Earth (Replacement Dimension) Beth Smith Human Alive Earth (Replacement Dimension) Jerry Smith Human Alive Earth (Replacement Dimension) Abadango Cluster Princess Alien Alive Abadango Abradolf Lincler Human unknown Earth (Replacement Dimension) Adjudicator Rick Human Dead unknown Agency Director Human Dead Earth (Replacement Dimension) Alan Rails Human Dead unknown Albert Einstein Human Dead Earth (C-137) Alexander Human Dead Earth",
+        "scrollWidth": 1485,
+        "clientWidth": 1425,
+        "scrollHeight": 3645,
+        "imageStats": [
+          {
+            "src": "http://127.0.0.1:8765/rickandmorty/assets/img/github.svg",
+            "complete": true,
+            "naturalWidth": 40,
+            "naturalHeight": 40
+          },
+          {
+            "src": "http://127.0.0.1:8765/rickandmorty/assets/img/img-rick.svg",
+            "complete": true,
+            "naturalWidth": 408,
+            "naturalHeight": 675
+          },
+          {
+            "src": "http://127.0.0.1:8765/rickandmorty/assets/img/RickandMorty.svg",
+            "complete": true,
+            "naturalWidth": 430,
+            "naturalHeight": 126
+          },
+          {
+            "src": "https://rickandmortyapi.com/api/character/avatar/1.jpeg",
+            "complete": true,
+            "naturalWidth": 300,
+            "naturalHeight": 300
+          },
+          {
+            "src": "http://127.0.0.1:8765/rickandmorty/assets/img/iconAlien.svg",
+            "complete": true,
+            "naturalWidth": 24,
+            "naturalHeight": 24
+          },
+          {
+            "src": "http://127.0.0.1:8765/rickandmorty/assets/img/Vector.svg",
+            "complete": true,
+            "naturalWidth": 18,
+            "naturalHeight": 18
+          },
+          {
+            "src": "http://127.0.0.1:8765/rickandmorty/assets/img/planet.svg",
+            "complete": true,
+            "naturalWidth": 19,
+            "naturalHeight": 19
+          },
+          {
+            "src": "https://rickandmortyapi.com/api/character/avatar/2.jpeg",
+            "complete": true,
+            "naturalWidth": 300,
+            "naturalHeight": 300
+          },
+          {
+            "src": "http://127.0.0.1:8765/rickandmorty/assets/img/iconAlien.svg",
+            "complete": true,
+            "naturalWidth": 24,
+            "naturalHeight": 24
+          },
+          {
+            "src": "http://127.0.0.1:8765/rickandmorty/assets/img/Vector.svg",
+            "complete": true,
+            "naturalWidth": 18,
+            "naturalHeight": 18
+          },
+          {
+            "src": "http://127.0.0.1:8765/rickandmorty/assets/img/planet.svg",
+            "complete": true,
+            "naturalWidth": 19,
+            "naturalHeight": 19
+          },
+          {
+            "src": "https://rickandmortyapi.com/api/character/avatar/3.jpeg",
+            "complete": true,
+            "naturalWidth": 300,
+            "naturalHeight": 300
+          }
+        ]
+      }
+    },
+    {
+      "slug": "dragonball",
+      "name": "Dragon Ball",
+      "url": "http://127.0.0.1:8765/dragonball/",
+      "viewport": "desktop",
+      "viewportWidth": 1440,
+      "viewportHeight": 900,
+      "deviceScaleFactor": 1,
+      "captureMode": "full-page",
+      "contentHeight": 6980,
+      "contentWidth": 1425,
+      "screenshot": "docs/etapa-1/baseline/desktop/dragonball.jpg",
+      "screenshotBytes": 1173397,
+      "state": {
+        "title": "Dragon Ball Z - Personagens",
+        "cards": 58,
+        "bodyText": "Explore os personagens lendários do universo DBZ Goku Raça: Saiyan Gênero: Male KI: 60.000.000 Vegeta Raça: Saiyan Gênero: Male KI: 54.000.000 Piccolo Raça: Namekian Gênero: Male KI: 2.000.000 Bulma Raça: Human Gênero: Female KI: 0 Freezer Raça: Frieza Race Gênero: Male KI: 530.000 Zarbon Raça: Frieza Race Gênero: Male KI: 20.000 Dodoria Raça: Frieza Race Gênero: Male KI: 18.000 Ginyu Raça: Frieza Race Gênero: Male KI: 9.000 Celula Raça: Android Gênero: Male KI: 250.000.000 Gohan Raça: Saiyan Gênero: Male KI: 45.000.000 Krillin Raça: Human Gênero: Male KI: 1.000.000 Tenshinhan Raça: Human Gênero: Male KI: 2.400.000 Yamcha Raça: Human Gênero: Male KI: 1.980.000 Chi-Chi Raça: Human Gênero: Fem",
+        "scrollWidth": 1425,
+        "clientWidth": 1425,
+        "scrollHeight": 6980,
+        "imageStats": [
+          {
+            "src": "http://127.0.0.1:8765/dragonball/assets/img/Dragon_Ball_Z_logo.svg",
+            "complete": true,
+            "naturalWidth": 3780,
+            "naturalHeight": 964
+          },
+          {
+            "src": "https://dragonball-api.com/characters/goku_normal.webp",
+            "complete": true,
+            "naturalWidth": 870,
+            "naturalHeight": 1959
+          },
+          {
+            "src": "https://dragonball-api.com/characters/vegeta_normal.webp",
+            "complete": true,
+            "naturalWidth": 810,
+            "naturalHeight": 2053
+          },
+          {
+            "src": "https://dragonball-api.com/characters/picolo_normal.webp",
+            "complete": true,
+            "naturalWidth": 414,
+            "naturalHeight": 661
+          },
+          {
+            "src": "https://dragonball-api.com/characters/bulma.webp",
+            "complete": true,
+            "naturalWidth": 290,
+            "naturalHeight": 920
+          },
+          {
+            "src": "https://dragonball-api.com/characters/Freezer.webp",
+            "complete": true,
+            "naturalWidth": 296,
+            "naturalHeight": 500
+          },
+          {
+            "src": "https://dragonball-api.com/characters/zarbon.webp",
+            "complete": true,
+            "naturalWidth": 317,
+            "naturalHeight": 596
+          },
+          {
+            "src": "https://dragonball-api.com/characters/dodoria.webp",
+            "complete": true,
+            "naturalWidth": 395,
+            "naturalHeight": 437
+          },
+          {
+            "src": "https://dragonball-api.com/characters/ginyu.webp",
+            "complete": true,
+            "naturalWidth": 468,
+            "naturalHeight": 676
+          },
+          {
+            "src": "https://dragonball-api.com/characters/celula.webp",
+            "complete": true,
+            "naturalWidth": 447,
+            "naturalHeight": 937
+          },
+          {
+            "src": "https://dragonball-api.com/characters/gohan.webp",
+            "complete": true,
+            "naturalWidth": 590,
+            "naturalHeight": 750
+          },
+          {
+            "src": "https://dragonball-api.com/characters/Krilin_Universo7.webp",
+            "complete": true,
+            "naturalWidth": 230,
+            "naturalHeight": 460
+          }
+        ]
+      }
+    },
+    {
+      "slug": "home",
+      "name": "Pagina principal",
+      "url": "http://127.0.0.1:8765/",
+      "viewport": "mobile",
+      "viewportWidth": 390,
+      "viewportHeight": 844,
+      "deviceScaleFactor": 2,
+      "captureMode": "full-page",
+      "contentHeight": 1912,
+      "contentWidth": 390,
+      "screenshot": "docs/etapa-1/baseline/mobile/home.jpg",
+      "screenshotBytes": 275852,
+      "state": {
+        "title": "Fetch.Lab | Davi Ferreira",
+        "cards": 0,
+        "bodyText": "Fetch.Lab Laboratório de consumo de APIs REST e manipulação do DOM. Dados externos transformados em interfaces dinâmicas. JavaScript (Fetch API) JSON DOM Manipulation Projetos do Laboratório Consumo de endpoints, tratamento de imagens e estados de loading com a Naruto API. Acessar Projeto Filtragem de dados, manipulação de arrays e exibição de detalhes com a Jujutsu Kaisen API. Acessar Projeto Paginação, busca avançada e manipulação de objetos aninhados com a Rick and Morty API. Acessar Projeto Requisição GET, renderização de listas e cards de personagens com a Dragon Ball API. Acessar Projeto Desenvolvido por Davi Ferreira Ver perfil no GitHub",
+        "scrollWidth": 390,
+        "clientWidth": 390,
+        "scrollHeight": 1912,
+        "imageStats": [
+          {
+            "src": "http://127.0.0.1:8765/naruto/assets/img/naruto-logo.svg",
+            "complete": true,
+            "naturalWidth": 986,
+            "naturalHeight": 420
+          },
+          {
+            "src": "http://127.0.0.1:8765/jujutsukaisen/assets/img/jujutsukaisen-logo.svg",
+            "complete": true,
+            "naturalWidth": 960,
+            "naturalHeight": 243
+          },
+          {
+            "src": "http://127.0.0.1:8765/rickandmorty/assets/img/RickandMorty.svg",
+            "complete": true,
+            "naturalWidth": 430,
+            "naturalHeight": 126
+          },
+          {
+            "src": "http://127.0.0.1:8765/dragonball/assets/img/Dragon_Ball_Z_logo.svg",
+            "complete": true,
+            "naturalWidth": 3780,
+            "naturalHeight": 964
+          }
+        ]
+      }
+    },
+    {
+      "slug": "naruto",
+      "name": "Naruto",
+      "url": "http://127.0.0.1:8765/naruto/",
+      "viewport": "mobile",
+      "viewportWidth": 390,
+      "viewportHeight": 844,
+      "deviceScaleFactor": 2,
+      "captureMode": "full-page",
+      "contentHeight": 8929,
+      "contentWidth": 390,
+      "screenshot": "docs/etapa-1/baseline/mobile/naruto.jpg",
+      "screenshotBytes": 1090900,
+      "state": {
+        "title": "Naruto API · Registro Shinobi",
+        "cards": 20,
+        "bodyText": "Dattebayo.API Bem-vindos ao Consumo de API do Naruto Aqui você encontra informações sobre os personagens de Naruto Veja agora Saiba mais BINGO BOOK · REGISTRO SHINOBI Nossos personagens Naruto Uzumaki Konohagakure Uzumaki Sasuke Uchiha Konohagakure Uchiha Madara Uchiha Konohagakure Uchiha Kakashi Hatake Konohagakure Hatake Orochimaru Konohagakure undefined Obito Uchiha Konohagakure Uchiha Gaara Sunagakure Kazekage (Novel only) Kabuto Yakushi Konohagakure undefined Jiraiya Konohagakure undefined Yamato Konohagakure undefined Might Guy Konohagakure undefined Konohamaru Sarutobi Konohagakure Sarutobi Mitsuki Otogakure undefined Minato Namikaze Konohagakure undefined Boruto Uzumaki Konohagakure ",
+        "scrollWidth": 390,
+        "clientWidth": 390,
+        "scrollHeight": 8929,
+        "imageStats": [
+          {
+            "src": "http://127.0.0.1:8765/naruto/assets/img/naruto.svg",
+            "complete": true,
+            "naturalWidth": 1080,
+            "naturalHeight": 1944
+          },
+          {
+            "src": "http://127.0.0.1:8765/naruto/assets/img/naruto-logo.svg",
+            "complete": true,
+            "naturalWidth": 986,
+            "naturalHeight": 420
+          },
+          {
+            "src": "https://static.wikia.nocookie.net/naruto/images/d/d6/Naruto_Part_I.png,https://static.wikia.nocookie.net/naruto/images/7/7d/Naruto_Part_II.png",
+            "complete": true,
+            "naturalWidth": 300,
+            "naturalHeight": 171
+          },
+          {
+            "src": "https://static.wikia.nocookie.net/naruto/images/2/21/Sasuke_Part_1.png,https://static.wikia.nocookie.net/naruto/images/1/13/Sasuke_Part_2.png",
+            "complete": true,
+            "naturalWidth": 300,
+            "naturalHeight": 171
+          },
+          {
+            "src": "https://static.wikia.nocookie.net/naruto/images/f/fd/Madara.png",
+            "complete": true,
+            "naturalWidth": 1440,
+            "naturalHeight": 1080
+          },
+          {
+            "src": "https://static.wikia.nocookie.net/naruto/images/2/27/Kakashi_Hatake.png,https://static.wikia.nocookie.net/naruto/images/2/25/Kakashi_Part_III.png",
+            "complete": true,
+            "naturalWidth": 300,
+            "naturalHeight": 171
+          },
+          {
+            "src": "https://static.wikia.nocookie.net/naruto/images/1/14/Orochimaru_Infobox.png,https://static.wikia.nocookie.net/naruto/images/b/be/Orochimaru_Part_III.png",
+            "complete": true,
+            "naturalWidth": 300,
+            "naturalHeight": 171
+          },
+          {
+            "src": "https://static.wikia.nocookie.net/naruto/images/4/4a/Obito_Uchiha.png,https://static.wikia.nocookie.net/naruto/images/3/3c/Obito.png",
+            "complete": true,
+            "naturalWidth": 300,
+            "naturalHeight": 171
+          },
+          {
+            "src": "https://static.wikia.nocookie.net/naruto/images/2/20/Gaara_in_Part_I.png,https://static.wikia.nocookie.net/naruto/images/0/0f/Gaara_Part_II.png",
+            "complete": true,
+            "naturalWidth": 300,
+            "naturalHeight": 171
+          },
+          {
+            "src": "https://static.wikia.nocookie.net/naruto/images/c/c9/Kabuto_Part_1.png,https://static.wikia.nocookie.net/naruto/images/0/0b/Kabuto_Part_II.png",
+            "complete": true,
+            "naturalWidth": 300,
+            "naturalHeight": 171
+          },
+          {
+            "src": "https://static.wikia.nocookie.net/naruto/images/2/21/Profile_Jiraiya.png",
+            "complete": true,
+            "naturalWidth": 300,
+            "naturalHeight": 171
+          },
+          {
+            "src": "https://static.wikia.nocookie.net/naruto/images/f/f7/Yamato_newshot.png,https://static.wikia.nocookie.net/naruto/images/4/48/Yamato_Part_III.png",
+            "complete": true,
+            "naturalWidth": 300,
+            "naturalHeight": 171
+          }
+        ]
+      }
+    },
+    {
+      "slug": "jujutsukaisen",
+      "name": "Jujutsu Kaisen",
+      "url": "http://127.0.0.1:8765/jujutsukaisen/",
+      "viewport": "mobile",
+      "viewportWidth": 390,
+      "viewportHeight": 844,
+      "deviceScaleFactor": 2,
+      "captureMode": "full-page",
+      "contentHeight": 1624,
+      "contentWidth": 390,
+      "screenshot": "docs/etapa-1/baseline/mobile/jujutsukaisen.jpg",
+      "screenshotBytes": 246940,
+      "state": {
+        "title": "Jujutsu Kaisen",
+        "cards": 0,
+        "bodyText": "Jujutsu.API Bem-vindos ao Registro de Feiticeiros de Jujutsu Kaisen Aqui você encontra informações sobre os feiticeiros e curses de Jujutsu Kaisen Veja agora Saiba mais REGISTRO DE FEITICEIROS · COLÉGIO DE TÓQUIO Nossos feiticeiros Erro ao carregar os dados. Tente atualizar a página. Desenvolvido por Davi Ferreira",
+        "scrollWidth": 390,
+        "clientWidth": 390,
+        "scrollHeight": 1624,
+        "imageStats": [
+          {
+            "src": "http://127.0.0.1:8765/jujutsukaisen/assets/img/img-jujutsukaisen.svg",
+            "complete": true,
+            "naturalWidth": 560,
+            "naturalHeight": 700
+          },
+          {
+            "src": "http://127.0.0.1:8765/jujutsukaisen/assets/img/jujutsukaisen-logo.svg",
+            "complete": true,
+            "naturalWidth": 960,
+            "naturalHeight": 243
+          }
+        ]
+      }
+    },
+    {
+      "slug": "rickandmorty",
+      "name": "Rick and Morty",
+      "url": "http://127.0.0.1:8765/rickandmorty/",
+      "viewport": "mobile",
+      "viewportWidth": 390,
+      "viewportHeight": 844,
+      "deviceScaleFactor": 2,
+      "captureMode": "full-page",
+      "contentHeight": 3645,
+      "contentWidth": 969,
+      "screenshot": "docs/etapa-1/baseline/mobile/rickandmorty.jpg",
+      "screenshotBytes": 436952,
+      "state": {
+        "title": "Rick e Morty",
+        "cards": 20,
+        "bodyText": "Dferreira Bem-vindos ao consumo de API do Rick and Morty Aqui você encontra informações sobre os personagens de Rick and Morty. Veja agora Saiba mais Nossos Personagens Rick Sanchez Human Alive Earth (C-137) Morty Smith Human Alive unknown Summer Smith Human Alive Earth (Replacement Dimension) Beth Smith Human Alive Earth (Replacement Dimension) Jerry Smith Human Alive Earth (Replacement Dimension) Abadango Cluster Princess Alien Alive Abadango Abradolf Lincler Human unknown Earth (Replacement Dimension) Adjudicator Rick Human Dead unknown Agency Director Human Dead Earth (Replacement Dimension) Alan Rails Human Dead unknown Albert Einstein Human Dead Earth (C-137) Alexander Human Dead Earth",
+        "scrollWidth": 969,
+        "clientWidth": 390,
+        "scrollHeight": 3645,
+        "imageStats": [
+          {
+            "src": "http://127.0.0.1:8765/rickandmorty/assets/img/github.svg",
+            "complete": true,
+            "naturalWidth": 40,
+            "naturalHeight": 40
+          },
+          {
+            "src": "http://127.0.0.1:8765/rickandmorty/assets/img/img-rick.svg",
+            "complete": true,
+            "naturalWidth": 408,
+            "naturalHeight": 675
+          },
+          {
+            "src": "http://127.0.0.1:8765/rickandmorty/assets/img/RickandMorty.svg",
+            "complete": true,
+            "naturalWidth": 430,
+            "naturalHeight": 126
+          },
+          {
+            "src": "https://rickandmortyapi.com/api/character/avatar/1.jpeg",
+            "complete": true,
+            "naturalWidth": 300,
+            "naturalHeight": 300
+          },
+          {
+            "src": "http://127.0.0.1:8765/rickandmorty/assets/img/iconAlien.svg",
+            "complete": true,
+            "naturalWidth": 24,
+            "naturalHeight": 24
+          },
+          {
+            "src": "http://127.0.0.1:8765/rickandmorty/assets/img/Vector.svg",
+            "complete": true,
+            "naturalWidth": 18,
+            "naturalHeight": 18
+          },
+          {
+            "src": "http://127.0.0.1:8765/rickandmorty/assets/img/planet.svg",
+            "complete": true,
+            "naturalWidth": 19,
+            "naturalHeight": 19
+          },
+          {
+            "src": "https://rickandmortyapi.com/api/character/avatar/2.jpeg",
+            "complete": true,
+            "naturalWidth": 300,
+            "naturalHeight": 300
+          },
+          {
+            "src": "http://127.0.0.1:8765/rickandmorty/assets/img/iconAlien.svg",
+            "complete": true,
+            "naturalWidth": 24,
+            "naturalHeight": 24
+          },
+          {
+            "src": "http://127.0.0.1:8765/rickandmorty/assets/img/Vector.svg",
+            "complete": true,
+            "naturalWidth": 18,
+            "naturalHeight": 18
+          },
+          {
+            "src": "http://127.0.0.1:8765/rickandmorty/assets/img/planet.svg",
+            "complete": true,
+            "naturalWidth": 19,
+            "naturalHeight": 19
+          },
+          {
+            "src": "https://rickandmortyapi.com/api/character/avatar/3.jpeg",
+            "complete": true,
+            "naturalWidth": 300,
+            "naturalHeight": 300
+          }
+        ]
+      }
+    },
+    {
+      "slug": "dragonball",
+      "name": "Dragon Ball",
+      "url": "http://127.0.0.1:8765/dragonball/",
+      "viewport": "mobile",
+      "viewportWidth": 390,
+      "viewportHeight": 844,
+      "deviceScaleFactor": 2,
+      "captureMode": "full-page",
+      "contentHeight": 7053,
+      "contentWidth": 1160,
+      "screenshot": "docs/etapa-1/baseline/mobile/dragonball.jpg",
+      "screenshotBytes": 961305,
+      "state": {
+        "title": "Dragon Ball Z - Personagens",
+        "cards": 58,
+        "bodyText": "Explore os personagens lendários do universo DBZ Goku Raça: Saiyan Gênero: Male KI: 60.000.000 Vegeta Raça: Saiyan Gênero: Male KI: 54.000.000 Piccolo Raça: Namekian Gênero: Male KI: 2.000.000 Bulma Raça: Human Gênero: Female KI: 0 Freezer Raça: Frieza Race Gênero: Male KI: 530.000 Zarbon Raça: Frieza Race Gênero: Male KI: 20.000 Dodoria Raça: Frieza Race Gênero: Male KI: 18.000 Ginyu Raça: Frieza Race Gênero: Male KI: 9.000 Celula Raça: Android Gênero: Male KI: 250.000.000 Gohan Raça: Saiyan Gênero: Male KI: 45.000.000 Krillin Raça: Human Gênero: Male KI: 1.000.000 Tenshinhan Raça: Human Gênero: Male KI: 2.400.000 Yamcha Raça: Human Gênero: Male KI: 1.980.000 Chi-Chi Raça: Human Gênero: Fem",
+        "scrollWidth": 1160,
+        "clientWidth": 390,
+        "scrollHeight": 7053,
+        "imageStats": [
+          {
+            "src": "http://127.0.0.1:8765/dragonball/assets/img/Dragon_Ball_Z_logo.svg",
+            "complete": true,
+            "naturalWidth": 3780,
+            "naturalHeight": 964
+          },
+          {
+            "src": "https://dragonball-api.com/characters/goku_normal.webp",
+            "complete": true,
+            "naturalWidth": 870,
+            "naturalHeight": 1959
+          },
+          {
+            "src": "https://dragonball-api.com/characters/vegeta_normal.webp",
+            "complete": true,
+            "naturalWidth": 810,
+            "naturalHeight": 2053
+          },
+          {
+            "src": "https://dragonball-api.com/characters/picolo_normal.webp",
+            "complete": true,
+            "naturalWidth": 414,
+            "naturalHeight": 661
+          },
+          {
+            "src": "https://dragonball-api.com/characters/bulma.webp",
+            "complete": true,
+            "naturalWidth": 290,
+            "naturalHeight": 920
+          },
+          {
+            "src": "https://dragonball-api.com/characters/Freezer.webp",
+            "complete": true,
+            "naturalWidth": 296,
+            "naturalHeight": 500
+          },
+          {
+            "src": "https://dragonball-api.com/characters/zarbon.webp",
+            "complete": true,
+            "naturalWidth": 317,
+            "naturalHeight": 596
+          },
+          {
+            "src": "https://dragonball-api.com/characters/dodoria.webp",
+            "complete": true,
+            "naturalWidth": 395,
+            "naturalHeight": 437
+          },
+          {
+            "src": "https://dragonball-api.com/characters/ginyu.webp",
+            "complete": true,
+            "naturalWidth": 468,
+            "naturalHeight": 676
+          },
+          {
+            "src": "https://dragonball-api.com/characters/celula.webp",
+            "complete": true,
+            "naturalWidth": 447,
+            "naturalHeight": 937
+          },
+          {
+            "src": "https://dragonball-api.com/characters/gohan.webp",
+            "complete": true,
+            "naturalWidth": 590,
+            "naturalHeight": 750
+          },
+          {
+            "src": "https://dragonball-api.com/characters/Krilin_Universo7.webp",
+            "complete": true,
+            "naturalWidth": 230,
+            "naturalHeight": 460
+          }
+        ]
+      }
+    }
+  ]
+}
