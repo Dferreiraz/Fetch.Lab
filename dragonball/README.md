@@ -2,91 +2,64 @@
 
 **Projeto de consumo de API REST com JavaScript**
 
-Aplicação Front-End desenvolvida para explorar personagens do universo Dragon Ball por meio de uma API REST, praticando requisições HTTP, manipulação do DOM e JavaScript assíncrono.
+Aplicação Front-End que explora personagens do universo Dragon Ball com a Dragon Ball API, praticando requisições HTTP, renderização de listas e layout responsivo.
 
 ![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white)
-![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white)
+![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-06B6D4?style=for-the-badge&logo=tailwindcss&logoColor=white)
 ![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)
-![API REST](https://img.shields.io/badge/API-REST-6C63FF?style=for-the-badge)
+![Dragon Ball API](https://img.shields.io/badge/Dragon_Ball_API-REST-FFCC00?style=for-the-badge)
 
 ---
 
 ## 📑 Índice
 
 - [Sobre o projeto](#-sobre-o-projeto)
-- [Objetivos](#-objetivos)
-- [Tecnologias utilizadas](#-tecnologias-utilizadas)
-- [API utilizada](#-api-utilizada)
+- [Como funciona o carregamento](#-como-funciona-o-carregamento)
+- [Layout responsivo](#-layout-responsivo)
+- [Falhas e nova tentativa](#-falhas-e-nova-tentativa)
+- [Limitações conhecidas](#-limitações-conhecidas)
 - [Como executar](#-como-executar)
-- [Aprendizados](#-aprendizados)
-- [Autor](#-autor)
 
 ---
 
 ## 📌 Sobre o projeto
 
-O Dragon Ball API é um projeto desenvolvido para praticar o consumo de APIs REST utilizando JavaScript puro.
+O Dragon Ball API consome a [Dragon Ball API](https://web.dragonball-api.com/) para listar personagens do universo Dragon Ball. A interface usa HTML5, Tailwind CSS via Play CDN `3.4.17` e JavaScript clássico, sem build, e faz parte do [Fetch.Lab](../README.md).
 
-A aplicação utiliza dados externos para apresentar informações de personagens do universo Dragon Ball, permitindo explorar na prática a integração entre uma API e uma interface web.
+## 🔄 Como funciona o carregamento
 
-O projeto faz parte dos meus estudos de desenvolvimento Front-End e consumo de APIs.
+- **Endpoint:** `https://dragonball-api.com/api/characters?limit=58`
+- **Timeout:** 15 segundos, controlado com `AbortController` (a API é mais lenta que as demais do laboratório).
+- **Validação:** a resposta precisa conter um array em `items`; outros formatos são tratados como contrato inválido.
+- **Conteúdo:** nome, raça, gênero e KI de cada personagem.
+- **Estado vazio:** se o array vier vazio, a página informa que nenhum personagem foi encontrado.
 
-## 🎯 Objetivos
+## 📱 Layout responsivo
 
-- Praticar requisições HTTP utilizando JavaScript.
-- Trabalhar com `fetch()` e operações assíncronas.
-- Consumir e interpretar dados no formato JSON.
-- Manipular elementos do DOM dinamicamente.
-- Desenvolver uma interface utilizando HTML e CSS.
-- Compreender o funcionamento da integração entre Front-End e API REST.
+O grid usa 2 colunas no mobile, **3 no tablet** (`sm:grid-cols-3`) e `auto-fit` a partir de `lg`. As imagens têm altura fixa por breakpoint (140/200/250 px) com `object-contain`.
 
-## 🛠️ Tecnologias utilizadas
+## ⚠️ Falhas e nova tentativa
 
-- **HTML5:** estrutura da aplicação.
-- **CSS3:** estilização e organização visual.
-- **JavaScript:** lógica da aplicação e consumo da API.
-- **Fetch API:** realização de requisições HTTP.
-- **Dragon Ball API:** fornecimento dos dados dos personagens.
+O projeto diferencia tempo esgotado, erro HTTP, falha de rede, contrato da API e erro de execução. Cada tentativa recebe um `requestId` e um novo `AbortController`; respostas antigas são descartadas.
 
-## 🌐 API utilizada
+Estados:
 
-O projeto utiliza a [Dragon Ball API](https://web.dragonball-api.com/), que disponibiliza dados relacionados ao universo Dragon Ball.
+- carregamento com `role="status"`, `aria-live` e `aria-busy`;
+- erro com `role="alert"` e botão **“Tentar novamente”**;
+- estado vazio com mensagem própria;
+- fallback SVG com as iniciais do personagem quando a imagem falha.
 
-- **Documentação:** https://web.dragonball-api.com/
-- **Tipo:** API REST
-- **Formato de resposta:** JSON
+## 🚧 Limitações conhecidas
 
-## 🚀 Como executar
+- A API é externa e pode ficar indisponível ou lenta.
+- A listagem carrega 58 personagens em uma única requisição, sem paginação, busca ou filtros.
+- O Tailwind Play CDN compila em tempo de execução e não é indicado para produção madura.
 
-### 1. Clone o repositório
+## ▶️ Como executar
 
-```bash
-git clone https://github.com/Dferreiraz/Fetch.Lab.git
-```
-
-### 2. Acesse a pasta do projeto
-
-Entre na pasta `dragonball`, localizada dentro do repositório `Fetch.Lab`.
-
-```bash
-cd Fetch.Lab/dragonball
-```
-
-### 3. Abra o projeto
-
-Abra o arquivo `index.html` diretamente no navegador ou utilize a extensão **Live Server** no Visual Studio Code.
-
-> É recomendado utilizar o Live Server durante o desenvolvimento para facilitar a execução e os testes da aplicação.
-
-## 📚 Aprendizados
-
-Este projeto contribuiu para minha evolução no desenvolvimento Front-End, principalmente nos seguintes conceitos:
-
-- Consumo de APIs externas.
-- Requisições assíncronas com JavaScript.
-- Manipulação de dados recebidos em JSON.
-- Integração entre JavaScript e HTML.
-- Organização de arquivos e estrutura de projetos.
+1. Na raiz do repositório, inicie um servidor estático (Live Server, `python -m http.server` ou equivalente).
+2. Acesse a pasta `dragonball/` pelo servidor — não abra o arquivo direto via `file://`.
+3. Para testar o timeout, bloqueie `dragonball-api.com` nas ferramentas de desenvolvedor e recarregue a página.
 
 ## 👨‍💻 Autor
 
@@ -95,10 +68,10 @@ Este projeto contribuiu para minha evolução no desenvolvimento Front-End, prin
 Desenvolvedor Front-End em evolução.
 
 [![GitHub](https://img.shields.io/badge/GitHub-Dferreiraz-181717?style=for-the-badge&logo=github)](https://github.com/Dferreiraz)
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-Perfil-0A66C2?style=for-the-badge&logo=linkedin)](https://www.linkedin.com/)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-Perfil-0A66C2?style=for-the-badge&logo=linkedin)](https://br.linkedin.com/in/davirobertoferreira)
 
 ---
 
 <p align="center">
-  <strong>Além dos limites, sempre buscando um novo nível!</strong> 
+  <strong>Que a energia do KI acompanhe cada requisição!</strong>
 </p>

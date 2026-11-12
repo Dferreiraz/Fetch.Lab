@@ -1,43 +1,60 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-BR" class="scroll-smooth motion-reduce:scroll-auto">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rick e Morty</title>
-
-    <!-- Links -->
-    <link rel="stylesheet" href="./css/style.css">
-    <script src="./script.js" defer></script>
+    <link rel="icon" type="image/svg+xml" href="./assets/img/rickandmorty-favicon.svg">
 
     <!-- Fonte -->
-     <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
 
-</head>
-<body>
+    <!-- Tailwind CSS via Play CDN -->
+    <script src="https://cdn.tailwindcss.com/3.4.17"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        rm: "#11B0C8",
+                        panel: "#1A1A1A"
+                    },
+                    fontFamily: {
+                        sans: ["Poppins", "sans-serif"]
+                    }
+                }
+            }
+        };
+    </script>
 
-    <header>
-        <nav>
-            <a href="https://github.com/Dferreiraz" target="_blank">Dferreira</a>
+    <script src="./script.js" defer></script>
+</head>
+<body class="bg-black font-sans text-[16px] leading-[normal] text-white">
+
+    <header class="flex items-center justify-end gap-[15px] bg-rm p-[15px]">
+        <nav class="flex items-center gap-5" aria-label="Navegação principal">
+            <a href="../index.html" class="inline-flex min-h-[40px] items-center py-1 text-[20px] font-bold text-black transition hover:text-[#0b6b7a] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black focus-visible:ring-offset-2 focus-visible:ring-offset-rm">Fetch.Lab</a>
+            <a href="https://github.com/Dferreiraz" target="_blank" rel="noopener noreferrer" class="inline-flex min-h-[40px] items-center py-1 text-[20px] font-bold text-black transition hover:text-[#0b6b7a] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black focus-visible:ring-offset-2 focus-visible:ring-offset-rm">Dferreira</a>
         </nav>
-        <img src="./assets/img/github.svg" alt="Icon GitHub">
+        <img src="./assets/img/github.svg" alt="" aria-hidden="true" class="h-10 w-10">
     </header>
 
-    <main>
-        <img src="./assets/img/img-rick.svg" alt="Rick">
+    <main class="mx-auto flex w-full max-w-[1300px] flex-col items-center justify-center gap-6 px-6 py-10 md:flex-row md:gap-4 md:py-0">
+        <img src="./assets/img/img-rick.svg" alt="Rick" class="h-auto w-full max-w-[408px]">
 
-        <div class="container-main">
-            <img src="./assets/img/RickandMorty.svg" alt="Rick And Morty estilizado">
-            <div class="content-main">
-                <h1>Bem-vindos ao <span>consumo de API</span> do Rick and Morty</h1>
-                <p>Aqui você encontra informações sobre os personagens de Rick and Morty.</p>
+        <div class="flex w-full max-w-[500px] flex-col gap-[25px]">
+            <img src="./assets/img/RickandMorty.svg" alt="Rick And Morty estilizado" class="h-auto w-full max-w-[430px]">
+            <div class="flex flex-col gap-[25px]">
+                <h1 class="max-w-[500px] text-[32px] font-bold leading-[normal]">Bem-vindos ao <span class="text-rm">consumo de API</span> do Rick and Morty</h1>
+                <p class="max-w-[450px] text-[16px]">Aqui você encontra informações sobre os personagens de Rick and Morty.</p>
             </div>
             <nav>
                 <ul>
-                    <li>
-                        <a href="#" class="btn-primary">Veja agora</a>
-                        <a href="#" class="btn-secondary">Saiba mais</a>
+                    <li class="flex gap-5">
+                        <a href="#personagens" class="inline-flex min-h-[44px] items-center rounded-[10px] bg-rm px-5 py-[15px] text-white transition hover:brightness-110 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-black">Veja agora</a>
+                        <a href="https://rickandmortyapi.com/" target="_blank" rel="noopener noreferrer" class="inline-flex min-h-[44px] items-center rounded-[10px] border-2 border-rm bg-black px-5 py-[15px] text-rm transition hover:bg-rm hover:text-black focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-rm focus-visible:ring-offset-2 focus-visible:ring-offset-black">Saiba mais</a>
                     </li>
                 </ul>
             </nav>
@@ -45,19 +62,31 @@
     </main>
 
     <!-- Section Cards -->
-    <div class="section-info">
-        <h2>Nossos <span>Personagens</span></h2>
+    <div id="personagens" class="flex flex-col items-center justify-center gap-10 bg-panel px-6 py-[60px]">
+        <h2 class="text-[24px] font-bold leading-[normal]">Nossos <span class="text-rm">Personagens</span></h2>
 
-        <div class="section-cards" id="personagens-container">
-        
+        <div class="grid w-full max-w-[1160px] grid-cols-1 gap-[35px] sm:grid-cols-2 lg:grid-cols-4" id="personagens-container">
+            <noscript>
+                <p class="col-span-full text-center text-[16px] text-white">Este projeto precisa de JavaScript habilitado para carregar os personagens da API.</p>
+            </noscript>
         </div>
     </div>
 
     <!-- Footer -->
-     <footer>
-        <p>Desenvolvido por <a href="https://github.com/Dferreiraz" target="_blank">Davi Roberto</a></p>
-     </footer>
-
+    <footer class="flex flex-col items-center justify-center gap-2 px-6 py-[60px]">
+        <nav aria-label="Projetos do laboratório" class="mb-1 flex flex-wrap items-center justify-center gap-x-4 gap-y-1 text-[14px] font-semibold">
+            <a href="../index.html" class="inline-flex min-h-[32px] items-center px-1 text-white transition hover:text-rm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-rm focus-visible:ring-offset-2 focus-visible:ring-offset-black">Início</a>
+            <span class="text-[#555]" aria-hidden="true">·</span>
+            <a href="../naruto/index.html" class="inline-flex min-h-[32px] items-center px-1 text-white transition hover:text-rm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-rm focus-visible:ring-offset-2 focus-visible:ring-offset-black">Naruto</a>
+            <span class="text-[#555]" aria-hidden="true">·</span>
+            <a href="../jujutsukaisen/index.html" class="inline-flex min-h-[32px] items-center px-1 text-white transition hover:text-rm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-rm focus-visible:ring-offset-2 focus-visible:ring-offset-black">Jujutsu Kaisen</a>
+            <span class="text-[#555]" aria-hidden="true">·</span>
+            <a href="../rickandmorty/index.html" aria-current="page" class="inline-flex min-h-[32px] items-center px-1 text-rm">Rick and Morty</a>
+            <span class="text-[#555]" aria-hidden="true">·</span>
+            <a href="../dragonball/index.html" class="inline-flex min-h-[32px] items-center px-1 text-white transition hover:text-rm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-rm focus-visible:ring-offset-2 focus-visible:ring-offset-black">Dragon Ball</a>
+        </nav>
+        <p>Desenvolvido por <a href="https://github.com/Dferreiraz" target="_blank" rel="noopener noreferrer" class="inline-flex min-h-[32px] items-center px-1 text-rm underline-offset-4 transition hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-rm focus-visible:ring-offset-2 focus-visible:ring-offset-black">Davi Roberto</a></p>
+    </footer>
 
 </body>
 </html>

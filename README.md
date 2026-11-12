@@ -11,7 +11,7 @@
 
 <p align="center">
   <img src="https://img.shields.io/badge/HTML5-E34F26?style=flat&logo=html5&logoColor=white" alt="HTML5">
-  <img src="https://img.shields.io/badge/CSS3-1572B6?style=flat&logo=css3&logoColor=white" alt="CSS3">
+  <img src="https://img.shields.io/badge/Tailwind_CSS-06B6D4?style=flat&logo=tailwindcss&logoColor=white" alt="Tailwind CSS">
   <img src="https://img.shields.io/badge/JavaScript-ES6%2B-yellow?style=flat&logo=javascript&logoColor=black" alt="JavaScript ES6+">
   <img src="https://img.shields.io/badge/Fetch_API-005571?style=flat&logo=googlechrome&logoColor=white" alt="Fetch API">
   <img src="https://img.shields.io/badge/Status-Em%20desenvolvimento-orange" alt="Status">
@@ -48,9 +48,9 @@ A proposta é avançar dos fundamentos da lógica de programação para aplicaç
 - Manipular e interpretar dados no formato JSON.
 - Trabalhar com arrays, objetos e métodos de iteração e filtragem.
 - Renderizar listas, cards e detalhes dinamicamente no DOM.
-- Desenvolver funcionalidades de busca, filtros e paginação.
 - Implementar estados de carregamento e tratamento de falhas nas requisições.
-- Construir interfaces responsivas utilizando HTML5 e CSS3.
+- Aplicar timeout, nova tentativa e fallback para APIs indisponíveis.
+- Construir interfaces responsivas utilizando HTML5 e Tailwind CSS.
 - Consolidar conhecimentos de JavaScript por meio de projetos práticos.
 
 ---
@@ -61,12 +61,38 @@ O laboratório reúne quatro aplicações independentes, cada uma utilizando uma
 
 | Projeto | API utilizada | Conceitos principais | Acessar |
 |---|---|---|---|
-| **Dragon Ball** | Dragon Ball API | Requisições GET, renderização de listas e cards de personagens. | [Abrir projeto](./dragonball/) |
-| **Jujutsu Kaisen** | Jujutsu Kaisen API | Filtragem de dados, manipulação de arrays e exibição de detalhes. | [Abrir projeto](./jujutsukaisen/) |
-| **Naruto** | Naruto API | Consumo de endpoints, tratamento de imagens e estados de carregamento. | [Abrir projeto](./naruto/) |
-| **Rick and Morty** | Rick and Morty API | Paginação, busca avançada e manipulação de objetos aninhados. | [Abrir projeto](./rickandmorty/) |
+| **Dragon Ball** | Dragon Ball API | Requisições GET, renderização de listas e grid responsivo com 58 personagens. | [Abrir projeto](./dragonball/) |
+| **Jujutsu Kaisen** | Jikan API | Manipulação de arrays, estados de carregamento e modo de demonstração. | [Abrir projeto](./jujutsukaisen/) |
+| **Naruto** | Dattebayo API | Consumo de endpoints, normalização de imagens e campos nulos. | [Abrir projeto](./naruto/) |
+| **Rick and Morty** | Rick and Morty API | Manipulação de objetos aninhados e tratamento de campos ausentes. | [Abrir projeto](./rickandmorty/) |
 
 Além das aplicações individuais, o repositório possui uma página principal que reúne os projetos em cards temáticos, facilitando a navegação pelo laboratório.
+
+### ⚙️ Funcionalidades principais
+
+- **Cinco páginas independentes** (home + quatro projetos) com URLs próprias e navegação entre elas.
+- **Consumo de APIs REST** com `fetch`, `async/await` e renderização dinâmica de cards.
+- **Estados de carregamento, erro, vazio e nova tentativa** em todos os projetos.
+- **Timeout explícito** para evitar espera indefinida (12 s em Naruto, Jujutsu Kaisen e Rick and Morty; 15 s em Dragon Ball).
+- **Modo de demonstração no Jujutsu Kaisen** quando a API não responde.
+- **Layout responsivo** com Tailwind CSS, sem overflow horizontal em desktop, tablet e mobile.
+- **Acessibilidade básica**: navegação por teclado, foco visível, `aria-current`, `role="status"`/`role="alert"` e link de salto na home.
+
+### 🧯 Tratamento de erros e imagens
+
+Os quatro projetos compartilham o mesmo contrato de estados, sem unificar os normalizadores de dados:
+
+- **Carregamento** com `role="status"`, `aria-live` e `aria-busy` no container.
+- **Timeout** via `AbortController`.
+- **Erro classificado** como tempo esgotado, erro HTTP, falha de rede, contrato da API ou erro de execução.
+- **Nova tentativa** por botão, sem recarregar a página.
+- **Resposta obsoleta** descartada por `requestId`, impedindo que uma requisição antiga sobrescreva a mais recente.
+- **Estado vazio** com mensagem própria.
+- **Fallback de imagem** com SVG local e iniciais do personagem quando a imagem falha.
+
+Valores ausentes são tratados antes de chegar ao DOM: `escapeHtml` protege todo texto dinâmico, `textOr` lida com nulos e arrays, e campos vazios recebem rótulos de indisponibilidade.
+
+Cada projeto tem um README próprio com os detalhes da sua integração. O Jujutsu Kaisen, em especial, mantém um modo de demonstração documentado em [`jujutsukaisen/README.md`](./jujutsukaisen/README.md).
 
 ---
 
@@ -96,15 +122,14 @@ Ao longo dos projetos, o laboratório aborda conceitos fundamentais para o desen
 - Métodos como `map()`, `filter()` e `find()`, conforme a necessidade de cada aplicação.
 - Seleção e manipulação de elementos HTML.
 - Criação dinâmica de cards e listas.
-- Eventos de interação e funcionalidades de busca.
-- Paginação e atualização dos resultados exibidos.
+- Eventos de interação e navegação entre as páginas.
 
 **Desenvolvimento Front-End**
 
 - Estruturação semântica com HTML5.
-- Estilização com CSS3.
+- Estilização utilitária com Tailwind CSS.
 - Layouts responsivos com Flexbox e Grid.
-- Organização e reutilização de estilos.
+- Organização e reutilização de estilos por meio de utilities e configuração de tema.
 - Separação entre estrutura, apresentação e comportamento.
 
 ---
@@ -116,7 +141,7 @@ As seguintes tecnologias e ferramentas são utilizadas no desenvolvimento do Fet
 ### Front-End
 
 - **HTML5** — Estruturação e semântica das páginas.
-- **CSS3** — Estilização, layouts responsivos e apresentação visual.
+- **Tailwind CSS** — Estilização utilitária, layouts responsivos e identidade visual, carregada via Play CDN (`3.4.17`).
 - **JavaScript ES6+** — Lógica, interatividade, manipulação do DOM e consumo de APIs.
 - **Fetch API** — Realização de requisições HTTP para obtenção de dados externos.
 - **JSON** — Formato utilizado para representar e manipular os dados recebidos das APIs.
@@ -132,7 +157,7 @@ As seguintes tecnologias e ferramentas são utilizadas no desenvolvimento do Fet
 
 - [Dragon Ball API](https://web.dragonball-api.com/)
 - **Jujutsu Kaisen:** [Jikan API](https://api.jikan.moe/v4/anime/40748/characters)
-- [Naruto API](https://narutodb.xyz/)
+- **Naruto:** [Dattebayo API](https://dattebayo-api.onrender.com/characters)
 - [Rick and Morty API](https://rickandmortyapi.com/)
 
 *Os serviços externos podem sofrer alterações, ficar indisponíveis ou modificar seus endpoints. Os links acima servem como referências para as APIs e podem não corresponder exatamente às versões utilizadas originalmente em cada projeto.*
@@ -159,13 +184,11 @@ cd Fetch.Lab
 code .
 ```
 
-### 4. Execute no navegador
+### 4. Execute com um servidor estático
 
-Você pode abrir o arquivo `index.html` localizado na raiz para acessar a página principal e navegar pelos projetos.
+Sirva a pasta raiz do repositório com um servidor estático e acesse `index.html` pelo endereço local gerado. A extensão **Live Server** no VS Code é a opção mais simples; alternativas incluem `python -m http.server` ou qualquer servidor estático de sua preferência.
 
-Também é possível abrir diretamente o arquivo `index.html` de qualquer uma das pastas temáticas.
-
-Para facilitar a execução e os testes, recomenda-se utilizar a extensão **Live Server** no VS Code.
+> **Importante:** o projeto não tem build, bundler nem `package.json`. Os scripts são clássicos (carregados com `defer`), mas o desenvolvimento local deve usar um servidor estático para que os caminhos relativos e as requisições às APIs funcionem como no GitHub Pages.
 
 > **Observação:** como os projetos dependem de APIs externas, é necessário ter conexão com a internet. A disponibilidade dos dados também depende do funcionamento de cada serviço e das configurações de acesso da respectiva API.
 
@@ -179,46 +202,42 @@ Fetch.Lab/
 ├── index.html
 ├── README.md
 │
-├── css/
-│   ├── global.css
-│   └── styles.css
-│
 ├── naruto/
 │   ├── index.html
-│   ├── script.js
-│   ├── css/
-│   │   ├── global.css
-│   │   └── styles.css
+│   ├── scripts.js
 │   └── assets/
 │
 ├── jujutsukaisen/
 │   ├── index.html
-│   ├── script.js
-│   ├── css/
-│   │   ├── global.css
-│   │   └── styles.css
+│   ├── scripts.js
 │   └── assets/
 │
 ├── rickandmorty/
 │   ├── index.html
 │   ├── script.js
-│   ├── css/
-│   │   ├── global.css
-│   │   └── styles.css
 │   └── assets/
 │
 └── dragonball/
     ├── index.html
     ├── script.js
-    ├── css/
-    │   ├── global.css
-    │   └── styles.css
     └── assets/
 ```
 
-A organização separa os estilos globais da página principal e mantém cada aplicação temática com seus próprios arquivos HTML, CSS, JavaScript e recursos visuais.
+A estrutura é **Tailwind-only**: não há folhas de estilo próprias. Cada `index.html` carrega o Tailwind Play CDN e declara um `tailwind.config` inline com as cores, famílias tipográficas, sombras e animações da sua identidade. O restante da apresentação usa utilities diretamente nas classes dos elementos.
+
+O JavaScript permanece em arquivos separados (`scripts.js` / `script.js`) e cuida apenas de dados, eventos e renderização — os cards criados dinamicamente recebem classes Tailwind no próprio `innerHTML`.
 
 Essa estrutura permite desenvolver, testar e evoluir cada projeto de forma independente dentro do mesmo repositório.
+
+---
+
+## ⚠️ Limitações conhecidas
+
+- **Tailwind Play CDN:** compila em tempo de execução, depende de rede e não é indicado para produção madura; emite um aviso no console. A versão está fixada em `3.4.17`.
+- **APIs externas:** podem ficar indisponíveis, lentas ou mudar de formato. Cada projeto trata esses casos com timeout, mensagem de erro e nova tentativa.
+- **Imagens de terceiros:** alguns servidores de imagem bloqueiam requisições fora do navegador; a validação visual depende do Chrome.
+- **Sem suíte de testes automatizada:** a validação é manual, por checklist e navegador.
+- **Fora de escopo:** busca, filtros, paginação e páginas de detalhe não fazem parte da versão atual.
 
 ---
 

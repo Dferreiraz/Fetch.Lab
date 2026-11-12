@@ -2,87 +2,70 @@
 
 **Projeto de consumo de API REST com JavaScript**
 
-Aplicação Front-End desenvolvida para explorar personagens do universo Naruto utilizando uma API REST, praticando requisições HTTP, JavaScript assíncrono e manipulação do DOM.
+Aplicação Front-End que explora personagens do universo Naruto com a Dattebayo API, praticando requisições HTTP, normalização de dados e renderização dinâmica de cards.
 
 ![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white)
-![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white)
+![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-06B6D4?style=for-the-badge&logo=tailwindcss&logoColor=white)
 ![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)
-![Naruto DB](https://img.shields.io/badge/Naruto_DB-API-FF8C00?style=for-the-badge)
+![Dattebayo API](https://img.shields.io/badge/Dattebayo_API-REST-FF6A13?style=for-the-badge)
 
 ---
 
 ## 📑 Índice
 
 - [Sobre o projeto](#-sobre-o-projeto)
-- [Objetivos](#-objetivos)
-- [Tecnologias utilizadas](#-tecnologias-utilizadas)
-- [API utilizada](#-api-utilizada)
+- [Como funciona o carregamento](#-como-funciona-o-carregamento)
+- [Tratamento de dados e imagens](#-tratamento-de-dados-e-imagens)
+- [Falhas e nova tentativa](#-falhas-e-nova-tentativa)
+- [Limitações conhecidas](#-limitações-conhecidas)
 - [Como executar](#-como-executar)
-- [Aprendizados](#-aprendizados)
-- [Autor](#-autor)
 
 ---
 
 ## 📌 Sobre o projeto
 
-O Naruto API é um projeto desenvolvido para praticar o consumo de APIs REST utilizando JavaScript puro.
+O Naruto API consome a [Dattebayo API](https://dattebayo-api.onrender.com/characters) para listar personagens do anime. A interface usa HTML5, Tailwind CSS via Play CDN `3.4.17` e JavaScript clássico, sem build, e faz parte do [Fetch.Lab](../README.md).
 
-A aplicação utiliza dados externos para explorar informações sobre personagens do universo Naruto, colocando em prática a integração entre uma API e uma interface web.
+## 🔄 Como funciona o carregamento
 
-Este projeto faz parte dos meus estudos de desenvolvimento Front-End e representa mais um passo na minha evolução com JavaScript.
+- **Endpoint:** `https://dattebayo-api.onrender.com/characters`
+- **Timeout:** 12 segundos, controlado com `AbortController`.
+- **Validação:** a resposta precisa conter um array em `characters`; outros formatos são tratados como contrato inválido.
+- **Renderização:** cada personagem vira um `article` com nome, afiliação e clã.
+- **Estado vazio:** se o array vier vazio, a página informa que nenhum personagem foi encontrado.
 
-## 🎯 Objetivos
+## 🖼️ Tratamento de dados e imagens
 
-- Praticar requisições HTTP utilizando JavaScript.
-- Consumir dados de uma API REST com `fetch()`.
-- Trabalhar com operações assíncronas.
-- Interpretar dados no formato JSON.
-- Manipular elementos do DOM dinamicamente.
-- Desenvolver interfaces com HTML5 e CSS3.
-- Integrar dados externos em uma aplicação web.
+- O campo `images` é sempre tratado como **array**, mas o código também aceita string e objeto com `jpg.image_url`, `image_url` ou `url`.
+- A primeira URL `http(s)` válida é usada em um quadro `4:3` com `object-contain`, preservando a proporção original.
+- Se a imagem falhar, um SVG local com as iniciais do personagem substitui a imagem, sem novo loop de erro.
+- `personal.clan` nulo vira **“Clã não informado”**.
+- `personal.affiliation` ausente vira **“Afiliação não informada”**.
+- Nenhum campo é inventado: apenas rótulos de indisponibilidade são usados.
 
-## 🛠️ Tecnologias utilizadas
+## ⚠️ Falhas e nova tentativa
 
-- **HTML5:** estrutura da aplicação.
-- **CSS3:** estilização da interface.
-- **JavaScript:** lógica e manipulação dos dados.
-- **Fetch API:** realização de requisições HTTP.
-- **NarutoDB API:** fornecimento dos dados dos personagens.
+O projeto diferencia tempo esgotado, erro HTTP, falha de rede, contrato da API e erro de execução. Cada tentativa recebe um `requestId` e um novo `AbortController`; respostas antigas são descartadas.
 
-## 🌐 API utilizada
+Estados:
 
-O projeto utiliza a [NarutoDB API](https://narutodb.xyz/), que disponibiliza informações sobre personagens e outros elementos do universo Naruto.
+- carregamento com `role="status"`, `aria-live` e `aria-busy`;
+- erro com `role="alert"` e botão **“Tentar novamente”**;
+- estado vazio com mensagem própria.
 
-- **Documentação:** https://narutodb.xyz/
-- **Tipo:** API REST
-- **Formato dos dados:** JSON
+## 🚧 Limitações conhecidas
 
-## 🚀 Como executar
+- A API é externa e pode ficar indisponível ou lenta.
+- As imagens ficam na wikia do Naruto; alguns ambientes de linha de comando recebem `403`, embora o Chrome carregue normalmente. A validação visual depende do navegador.
+- A única imagem de Jiraiya responde `404`; a wikia devolve um placeholder que ainda decodifica, então o fallback SVG não é acionado.
+- A listagem exibe apenas os personagens retornados pela resposta atual (20), sem paginação, busca ou filtros.
+- O Tailwind Play CDN compila em tempo de execução e não é indicado para produção madura.
 
-### 1. Clone o repositório
+## ▶️ Como executar
 
-```bash
-git clone https://github.com/Dferreiraz/Fetch.Lab.git
-```
-
-### 2. Acesse a pasta do projeto
-
-```bash
-cd Fetch.Lab/naruto
-```
-
-### 3. Execute a aplicação
-
-Abra o arquivo `index.html` no navegador ou utilize a extensão **Live Server** no Visual Studio Code.
-
-## 📚 Aprendizados
-
-- Consumo de APIs REST.
-- Requisições assíncronas com JavaScript.
-- Interpretação de respostas JSON.
-- Manipulação do DOM.
-- Integração entre Front-End e serviços externos.
-- Organização de arquivos em projetos web.
+1. Na raiz do repositório, inicie um servidor estático (Live Server, `python -m http.server` ou equivalente).
+2. Acesse a pasta `naruto/` pelo servidor — não abra o arquivo direto via `file://`.
+3. Para testar o erro e o retry, bloqueie `dattebayo-api.onrender.com` nas ferramentas de desenvolvedor e recarregue a página.
 
 ## 👨‍💻 Autor
 
@@ -91,10 +74,10 @@ Abra o arquivo `index.html` no navegador ou utilize a extensão **Live Server** 
 Desenvolvedor Front-End em evolução.
 
 [![GitHub](https://img.shields.io/badge/GitHub-Dferreiraz-181717?style=for-the-badge&logo=github)](https://github.com/Dferreiraz)
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-Perfil-0A66C2?style=for-the-badge&logo=linkedin)](https://www.linkedin.com/)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-Perfil-0A66C2?style=for-the-badge&logo=linkedin)](https://br.linkedin.com/in/davirobertoferreira)
 
 ---
 
 <p align="center">
-  <strong>Compilou, Tô Certo!</strong>
+  <strong>Acredite! O conhecimento está a um fetch de distância.</strong>
 </p>

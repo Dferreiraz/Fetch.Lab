@@ -1,28 +1,71 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-BR" class="scroll-smooth motion-reduce:scroll-auto">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Dragon Ball Z - Personagens</title>
-  <link rel="stylesheet" href="./css/style.css">
+  <link rel="icon" type="image/svg+xml" href="./assets/img/dragonball-favicon.svg" />
+
+  <!-- Tailwind CSS via Play CDN -->
+  <script src="https://cdn.tailwindcss.com/3.4.17"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            dark: "#0d0d0d",
+            soft: "#1e1e1e",
+            card: "#222222",
+            footer: "#111111",
+            yellow: "#ffcc00",
+            "yellow-bright": "#fff000",
+            orange: "#ff6600",
+            "orange-mid": "#ff9000",
+            "orange-glow": "#ff9900",
+            fg: "#ffffff",
+            dim: "#cccccc"
+          },
+          fontFamily: {
+            sans: ["Segoe UI", "sans-serif"]
+          }
+        }
+      }
+    };
+  </script>
+
   <script src="./script.js" defer></script>
 </head>
-<body>
+<body class="flex min-h-screen flex-col bg-gradient-to-b from-dark to-soft font-sans text-[16px] leading-[1.6] text-fg antialiased">
 
-  <header>
-    <img class="logo-img" src="./assets/img/Dragon_Ball_Z_logo.svg" alt="Logo Dragon Ball">
-    <h1>Explore os personagens lendários do universo DBZ</h1>
+  <header class="flex flex-col items-center gap-2 bg-gradient-to-r from-yellow to-orange px-4 py-8 text-center shadow-[0_4px_10px_rgba(0,0,0,0.4)]">
+    <nav aria-label="Navegação principal" class="flex w-full max-w-[1300px] items-center justify-between text-[0.95rem] font-semibold text-[#1b1b1b]">
+      <a href="../index.html" class="inline-flex min-h-[40px] items-center rounded px-2 transition hover:text-[#5a3200] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#1b1b1b] focus-visible:ring-offset-2 focus-visible:ring-offset-[#ffcc00]">← Fetch.Lab</a>
+      <a href="https://github.com/Dferreiraz" target="_blank" rel="noopener noreferrer" class="inline-flex min-h-[40px] items-center rounded px-2 transition hover:text-[#5a3200] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#1b1b1b] focus-visible:ring-offset-2 focus-visible:ring-offset-[#ffcc00]">GitHub</a>
+    </nav>
+    <img class="h-auto w-full max-w-[350px] drop-shadow-[2px_4px_6px_rgba(0,0,0,0.3)]" src="./assets/img/Dragon_Ball_Z_logo.svg" alt="Logo Dragon Ball">
+    <h1 class="text-[32px] font-bold leading-[1.15]">Explore os personagens lendários do universo DBZ</h1>
   </header>
 
-  <main id="personagens-container">
-        
+  <main id="personagens-container" class="mx-auto my-12 grid w-full max-w-[1300px] flex-1 auto-rows-max grid-cols-2 gap-4 px-4 sm:grid-cols-3 sm:gap-6 sm:px-6 lg:grid-cols-[repeat(auto-fit,minmax(250px,1fr))] lg:gap-8 lg:px-8">
+    <noscript>
+      <p class="col-span-full text-center text-dim">Este projeto precisa de JavaScript habilitado para carregar os personagens da API.</p>
+    </noscript>
   </main>
 
-  <footer>
-    <p>Feito com Ki infinito por <span>Davi</span> ⚡</p>
+  <footer class="bg-footer px-4 py-8 text-center text-[0.9rem] text-[#777]">
+    <nav aria-label="Projetos do laboratório" class="mb-3 flex flex-wrap items-center justify-center gap-x-4 gap-y-1 font-semibold">
+      <a href="../index.html" class="inline-flex min-h-[32px] items-center px-1 text-[#aaa] transition hover:text-yellow focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-yellow focus-visible:ring-offset-2 focus-visible:ring-offset-footer">Início</a>
+      <span class="text-[#555]" aria-hidden="true">·</span>
+      <a href="../naruto/index.html" class="inline-flex min-h-[32px] items-center px-1 text-[#aaa] transition hover:text-yellow focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-yellow focus-visible:ring-offset-2 focus-visible:ring-offset-footer">Naruto</a>
+      <span class="text-[#555]" aria-hidden="true">·</span>
+      <a href="../jujutsukaisen/index.html" class="inline-flex min-h-[32px] items-center px-1 text-[#aaa] transition hover:text-yellow focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-yellow focus-visible:ring-offset-2 focus-visible:ring-offset-footer">Jujutsu Kaisen</a>
+      <span class="text-[#555]" aria-hidden="true">·</span>
+      <a href="../rickandmorty/index.html" class="inline-flex min-h-[32px] items-center px-1 text-[#aaa] transition hover:text-yellow focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-yellow focus-visible:ring-offset-2 focus-visible:ring-offset-footer">Rick and Morty</a>
+      <span class="text-[#555]" aria-hidden="true">·</span>
+      <a href="../dragonball/index.html" aria-current="page" class="inline-flex min-h-[32px] items-center px-1 text-yellow">Dragon Ball</a>
+    </nav>
+    <p>Feito com Ki infinito por <span class="text-orange-glow">Davi</span> ⚡</p>
   </footer>
 
 </body>
 </html>
-
-
