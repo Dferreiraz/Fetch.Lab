@@ -47,23 +47,23 @@
 
   <script src="./scripts.js" defer></script>
 </head>
-<body class="min-h-screen bg-ink font-body text-[16px] leading-[1.6] text-fg antialiased">
+<body id="top" class="min-h-screen bg-ink font-body text-[16px] leading-[1.6] text-fg antialiased">
 
   <!-- ===================== HEADER ===================== -->
   <header class="sticky top-0 z-50 border-b border-line bg-ink/85 backdrop-blur-[10px]">
     <div class="mx-auto flex h-[72px] w-full max-w-[1160px] items-center justify-between px-7">
-      <a href="#" class="font-label text-[18px] font-bold tracking-[0.4px] text-fg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2 focus-visible:ring-offset-ink">Dattebayo<span class="text-accent">.API</span></a>
+      <a href="#top" class="font-label text-[18px] font-bold tracking-[0.4px] text-fg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2 focus-visible:ring-offset-ink">Dattebayo<span class="text-accent">.API</span></a>
 
-      <div class="flex items-center gap-7">
-        <span class="font-label font-semibold tracking-[0.5px] text-muted max-[480px]:hidden">DFerreira</span>
+      <nav class="flex items-center gap-6" aria-label="Navegação principal">
+        <a href="../index.html" class="inline-flex min-h-[40px] items-center font-label text-[14px] font-semibold tracking-[0.5px] text-muted transition hover:text-accent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2 focus-visible:ring-offset-ink">Fetch.Lab</a>
         <a
-          class="h-[26px] w-[26px] text-muted transition hover:-translate-y-0.5 hover:text-accent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2 focus-visible:ring-offset-ink"
+          class="inline-flex h-11 w-11 items-center justify-center text-muted transition hover:-translate-y-0.5 hover:text-accent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2 focus-visible:ring-offset-ink"
           href="https://github.com/Dferreiraz"
           target="_blank"
           rel="noopener noreferrer"
           aria-label="Perfil no GitHub"
         >
-          <svg class="h-full w-full" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+          <svg class="h-[26px] w-[26px]" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
             <path
               d="M12 .5C5.65.5.5 5.65.5 12c0 5.08 3.29 9.39 7.86 10.91.58.1.79-.25.79-.56
               0-.28-.01-1.02-.02-2-3.2.7-3.88-1.54-3.88-1.54-.52-1.33-1.28-1.68-1.28-1.68
@@ -76,9 +76,11 @@
             />
           </svg>
         </a>
-      </div>
+      </nav>
     </div>
   </header>
+
+  <main>
 
   <!-- ===================== HERO ===================== -->
   <section class="relative overflow-hidden bg-ink bg-hero py-[88px]">
@@ -102,8 +104,8 @@
         </p>
 
         <div class="flex flex-wrap justify-center gap-4 min-[861px]:justify-start">
-          <button type="button" class="inline-flex items-center justify-center rounded-md bg-accent px-[29px] py-[14px] font-label text-[16px] font-semibold tracking-[0.5px] text-ink transition duration-150 hover:-translate-y-0.5 hover:bg-accent-dark hover:shadow-soft focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2 focus-visible:ring-offset-ink">Veja agora</button>
-          <button type="button" class="inline-flex items-center justify-center rounded-md border-[1.5px] border-line bg-transparent px-[29px] py-[14px] font-label text-[16px] font-semibold tracking-[0.5px] text-fg transition duration-150 hover:border-accent hover:text-accent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2 focus-visible:ring-offset-ink">Saiba mais</button>
+          <a href="#personagens" class="inline-flex min-h-[44px] items-center justify-center rounded-md bg-accent px-[29px] py-[14px] font-label text-[16px] font-semibold tracking-[0.5px] text-ink transition duration-150 hover:-translate-y-0.5 hover:bg-accent-dark hover:shadow-soft focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2 focus-visible:ring-offset-ink">Veja agora</a>
+          <a href="https://narutodb.xyz/" target="_blank" rel="noopener noreferrer" class="inline-flex min-h-[44px] items-center justify-center rounded-md border-[1.5px] border-line bg-transparent px-[29px] py-[14px] font-label text-[16px] font-semibold tracking-[0.5px] text-fg transition duration-150 hover:border-accent hover:text-accent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2 focus-visible:ring-offset-ink">Saiba mais</a>
         </div>
       </div>
 
@@ -117,13 +119,30 @@
       <span class="mb-2 block font-label text-[13px] font-semibold uppercase tracking-[1.8px] text-accent">Bingo Book · Registro Shinobi</span>
       <h2 class="mb-12 text-[34px] leading-[1.15]">Nossos <span class="text-accent">personagens</span></h2>
 
-      <div class="grid grid-cols-1 gap-7 min-[481px]:grid-cols-[repeat(auto-fill,minmax(270px,1fr))]" id="cards-grid"></div>
+      <div class="grid grid-cols-1 gap-7 min-[481px]:grid-cols-[repeat(auto-fill,minmax(270px,1fr))]" id="cards-grid">
+        <noscript>
+          <p class="col-span-full text-[15px] text-muted">Este projeto precisa de JavaScript habilitado para carregar os personagens da API.</p>
+        </noscript>
+      </div>
     </div>
   </section>
+
+  </main>
 
   <!-- ===================== FOOTER ===================== -->
   <footer class="border-t border-line bg-surface py-7 text-center">
     <div class="mx-auto w-full max-w-[1160px] px-7">
+      <nav aria-label="Projetos do laboratório" class="mb-3 flex flex-wrap items-center justify-center gap-x-4 gap-y-1 font-label text-[13px] font-semibold tracking-[0.4px]">
+        <a href="../index.html" class="inline-flex min-h-[32px] items-center px-1 text-muted transition hover:text-accent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2 focus-visible:ring-offset-surface">Início</a>
+        <span class="text-line" aria-hidden="true">·</span>
+        <a href="../naruto/index.html" aria-current="page" class="inline-flex min-h-[32px] items-center px-1 text-accent">Naruto</a>
+        <span class="text-line" aria-hidden="true">·</span>
+        <a href="../jujutsukaisen/index.html" class="inline-flex min-h-[32px] items-center px-1 text-muted transition hover:text-accent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2 focus-visible:ring-offset-surface">Jujutsu Kaisen</a>
+        <span class="text-line" aria-hidden="true">·</span>
+        <a href="../rickandmorty/index.html" class="inline-flex min-h-[32px] items-center px-1 text-muted transition hover:text-accent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2 focus-visible:ring-offset-surface">Rick and Morty</a>
+        <span class="text-line" aria-hidden="true">·</span>
+        <a href="../dragonball/index.html" class="inline-flex min-h-[32px] items-center px-1 text-muted transition hover:text-accent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2 focus-visible:ring-offset-surface">Dragon Ball</a>
+      </nav>
       <p class="font-label text-[14px] tracking-[0.3px] text-muted">Desenvolvido por <strong class="text-accent">Davi Ferreira</strong></p>
     </div>
   </footer>

@@ -33,10 +33,11 @@
 <body class="bg-black font-sans text-[16px] leading-[normal] text-white">
 
     <header class="flex items-center justify-end gap-[15px] bg-rm p-[15px]">
-        <nav>
-            <a href="https://github.com/Dferreiraz" target="_blank" rel="noopener noreferrer" class="text-[20px] font-bold text-black focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black focus-visible:ring-offset-2 focus-visible:ring-offset-rm">Dferreira</a>
+        <nav class="flex items-center gap-5" aria-label="Navegação principal">
+            <a href="../index.html" class="inline-flex min-h-[40px] items-center py-1 text-[20px] font-bold text-black transition hover:text-[#0b6b7a] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black focus-visible:ring-offset-2 focus-visible:ring-offset-rm">Fetch.Lab</a>
+            <a href="https://github.com/Dferreiraz" target="_blank" rel="noopener noreferrer" class="inline-flex min-h-[40px] items-center py-1 text-[20px] font-bold text-black transition hover:text-[#0b6b7a] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black focus-visible:ring-offset-2 focus-visible:ring-offset-rm">Dferreira</a>
         </nav>
-        <img src="./assets/img/github.svg" alt="Icon GitHub" class="h-10 w-10">
+        <img src="./assets/img/github.svg" alt="" aria-hidden="true" class="h-10 w-10">
     </header>
 
     <main class="mx-auto flex w-full max-w-[1300px] flex-col items-center justify-center gap-6 px-6 py-10 md:flex-row md:gap-4 md:py-0">
@@ -51,8 +52,8 @@
             <nav>
                 <ul>
                     <li class="flex gap-5">
-                        <a href="#" class="rounded-[10px] bg-rm px-5 py-[15px] text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-black">Veja agora</a>
-                        <a href="#" class="rounded-[10px] border-2 border-rm bg-black px-5 py-[15px] text-rm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-rm focus-visible:ring-offset-2 focus-visible:ring-offset-black">Saiba mais</a>
+                        <a href="#personagens" class="inline-flex min-h-[44px] items-center rounded-[10px] bg-rm px-5 py-[15px] text-white transition hover:brightness-110 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-black">Veja agora</a>
+                        <a href="https://rickandmortyapi.com/" target="_blank" rel="noopener noreferrer" class="inline-flex min-h-[44px] items-center rounded-[10px] border-2 border-rm bg-black px-5 py-[15px] text-rm transition hover:bg-rm hover:text-black focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-rm focus-visible:ring-offset-2 focus-visible:ring-offset-black">Saiba mais</a>
                     </li>
                 </ul>
             </nav>
@@ -60,16 +61,30 @@
     </main>
 
     <!-- Section Cards -->
-    <div class="flex flex-col items-center justify-center gap-10 bg-panel px-6 py-[60px]">
+    <div id="personagens" class="flex flex-col items-center justify-center gap-10 bg-panel px-6 py-[60px]">
         <h2 class="text-[24px] font-bold leading-[normal]">Nossos <span class="text-rm">Personagens</span></h2>
 
         <div class="grid w-full max-w-[1160px] grid-cols-1 gap-[35px] sm:grid-cols-2 lg:grid-cols-4" id="personagens-container">
+            <noscript>
+                <p class="col-span-full text-center text-[16px] text-white">Este projeto precisa de JavaScript habilitado para carregar os personagens da API.</p>
+            </noscript>
         </div>
     </div>
 
     <!-- Footer -->
-    <footer class="flex items-center justify-center py-[60px]">
-        <p>Desenvolvido por <a href="https://github.com/Dferreiraz" target="_blank" rel="noopener noreferrer" class="text-rm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-rm focus-visible:ring-offset-2 focus-visible:ring-offset-black">Davi Roberto</a></p>
+    <footer class="flex flex-col items-center justify-center gap-2 px-6 py-[60px]">
+        <nav aria-label="Projetos do laboratório" class="mb-1 flex flex-wrap items-center justify-center gap-x-4 gap-y-1 text-[14px] font-semibold">
+            <a href="../index.html" class="inline-flex min-h-[32px] items-center px-1 text-white transition hover:text-rm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-rm focus-visible:ring-offset-2 focus-visible:ring-offset-black">Início</a>
+            <span class="text-[#555]" aria-hidden="true">·</span>
+            <a href="../naruto/index.html" class="inline-flex min-h-[32px] items-center px-1 text-white transition hover:text-rm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-rm focus-visible:ring-offset-2 focus-visible:ring-offset-black">Naruto</a>
+            <span class="text-[#555]" aria-hidden="true">·</span>
+            <a href="../jujutsukaisen/index.html" class="inline-flex min-h-[32px] items-center px-1 text-white transition hover:text-rm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-rm focus-visible:ring-offset-2 focus-visible:ring-offset-black">Jujutsu Kaisen</a>
+            <span class="text-[#555]" aria-hidden="true">·</span>
+            <a href="../rickandmorty/index.html" aria-current="page" class="inline-flex min-h-[32px] items-center px-1 text-rm">Rick and Morty</a>
+            <span class="text-[#555]" aria-hidden="true">·</span>
+            <a href="../dragonball/index.html" class="inline-flex min-h-[32px] items-center px-1 text-white transition hover:text-rm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-rm focus-visible:ring-offset-2 focus-visible:ring-offset-black">Dragon Ball</a>
+        </nav>
+        <p>Desenvolvido por <a href="https://github.com/Dferreiraz" target="_blank" rel="noopener noreferrer" class="inline-flex min-h-[32px] items-center px-1 text-rm underline-offset-4 transition hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-rm focus-visible:ring-offset-2 focus-visible:ring-offset-black">Davi Roberto</a></p>
     </footer>
 
 </body>

@@ -48,8 +48,8 @@ A proposta é avançar dos fundamentos da lógica de programação para aplicaç
 - Manipular e interpretar dados no formato JSON.
 - Trabalhar com arrays, objetos e métodos de iteração e filtragem.
 - Renderizar listas, cards e detalhes dinamicamente no DOM.
-- Desenvolver funcionalidades de busca, filtros e paginação.
 - Implementar estados de carregamento e tratamento de falhas nas requisições.
+- Aplicar timeout, nova tentativa e fallback para APIs indisponíveis.
 - Construir interfaces responsivas utilizando HTML5 e Tailwind CSS.
 - Consolidar conhecimentos de JavaScript por meio de projetos práticos.
 
@@ -61,12 +61,47 @@ O laboratório reúne quatro aplicações independentes, cada uma utilizando uma
 
 | Projeto | API utilizada | Conceitos principais | Acessar |
 |---|---|---|---|
-| **Dragon Ball** | Dragon Ball API | Requisições GET, renderização de listas e cards de personagens. | [Abrir projeto](./dragonball/) |
-| **Jujutsu Kaisen** | Jujutsu Kaisen API | Filtragem de dados, manipulação de arrays e exibição de detalhes. | [Abrir projeto](./jujutsukaisen/) |
-| **Naruto** | Naruto API | Consumo de endpoints, tratamento de imagens e estados de carregamento. | [Abrir projeto](./naruto/) |
-| **Rick and Morty** | Rick and Morty API | Paginação, busca avançada e manipulação de objetos aninhados. | [Abrir projeto](./rickandmorty/) |
+| **Dragon Ball** | Dragon Ball API | Requisições GET, renderização de listas e grid responsivo com 58 personagens. | [Abrir projeto](./dragonball/) |
+| **Jujutsu Kaisen** | Jikan API | Manipulação de arrays, estados de carregamento e fallback local com dados de demonstração. | [Abrir projeto](./jujutsukaisen/) |
+| **Naruto** | Dattebayo API | Consumo de endpoints, normalização de imagens e campos nulos. | [Abrir projeto](./naruto/) |
+| **Rick and Morty** | Rick and Morty API | Manipulação de objetos aninhados e tratamento de campos ausentes. | [Abrir projeto](./rickandmorty/) |
 
 Além das aplicações individuais, o repositório possui uma página principal que reúne os projetos em cards temáticos, facilitando a navegação pelo laboratório.
+
+### ⚙️ Funcionalidades principais
+
+- **Cinco páginas independentes** (home + quatro projetos) com URLs próprias e navegação entre elas.
+- **Consumo de APIs REST** com `fetch`, `async/await` e renderização dinâmica de cards.
+- **Estados de carregamento, erro, vazio e nova tentativa** em todos os projetos.
+- **Timeout explícito** para evitar espera indefinida (12 s em Naruto, Jujutsu Kaisen e Rick and Morty; 15 s em Dragon Ball).
+- **Fallback local do Jujutsu Kaisen** quando a Jikan não responde.
+- **Layout responsivo** com Tailwind CSS, sem overflow horizontal em desktop, tablet e mobile.
+- **Acessibilidade básica**: navegação por teclado, foco visível, `aria-current`, `role="status"`/`role="alert"` e link de salto na home.
+
+### 🧯 Tratamento de erros e imagens
+
+Os quatro projetos compartilham o mesmo contrato de estados, sem unificar os normalizadores de dados:
+
+- **Carregamento** com `role="status"`, `aria-live` e `aria-busy` no container.
+- **Timeout** via `AbortController`.
+- **Erro classificado** como tempo esgotado, erro HTTP, falha de rede, contrato da API ou erro de execução.
+- **Nova tentativa** por botão, sem recarregar a página.
+- **Resposta obsoleta** descartada por `requestId`, impedindo que uma requisição antiga sobrescreva a mais recente.
+- **Estado vazio** com mensagem própria.
+- **Fallback de imagem** com SVG local e iniciais do personagem quando a imagem falha.
+
+Valores ausentes são tratados antes de chegar ao DOM: `escapeHtml` protege todo texto dinâmico, `textOr` lida com nulos e arrays, e o Naruto exibe “Clã não informado” quando o campo vem vazio.
+
+### 🛡️ Fallback do Jujutsu Kaisen
+
+A API Jikan pode ficar indisponível. Nesse caso, o projeto exibe seis personagens de demonstração (Yuji Itadori, Megumi Fushiguro, Nobara Kugisaki, Satoru Gojo, Maki Zenin e Kento Nanami) com:
+
+- banner **“Modo demonstração”** com a causa da falha;
+- aviso explícito de que são **dados locais de exemplo, não uma resposta da API**;
+- selo “Demonstração” em cada card e avatares SVG gerados localmente;
+- botão **“Tentar carregar a API novamente”**.
+
+Se a Jikan responder com JSON em formato inesperado, o projeto mostra erro de contrato em vez de dados locais — o fallback é usado apenas para indisponibilidade.
 
 ---
 
@@ -96,8 +131,7 @@ Ao longo dos projetos, o laboratório aborda conceitos fundamentais para o desen
 - Métodos como `map()`, `filter()` e `find()`, conforme a necessidade de cada aplicação.
 - Seleção e manipulação de elementos HTML.
 - Criação dinâmica de cards e listas.
-- Eventos de interação e funcionalidades de busca.
-- Paginação e atualização dos resultados exibidos.
+- Eventos de interação e navegação entre as páginas.
 
 **Desenvolvimento Front-End**
 
@@ -132,7 +166,7 @@ As seguintes tecnologias e ferramentas são utilizadas no desenvolvimento do Fet
 
 - [Dragon Ball API](https://web.dragonball-api.com/)
 - **Jujutsu Kaisen:** [Jikan API](https://api.jikan.moe/v4/anime/40748/characters)
-- [Naruto API](https://narutodb.xyz/)
+- **Naruto:** [Dattebayo API](https://dattebayo-api.onrender.com/characters)
 - [Rick and Morty API](https://rickandmortyapi.com/)
 
 *Os serviços externos podem sofrer alterações, ficar indisponíveis ou modificar seus endpoints. Os links acima servem como referências para as APIs e podem não corresponder exatamente às versões utilizadas originalmente em cada projeto.*
@@ -163,7 +197,7 @@ code .
 
 Sirva a pasta raiz do repositório com um servidor estático e acesse `index.html` pelo endereço local gerado. A extensão **Live Server** no VS Code é a opção mais simples; alternativas incluem `python -m http.server` ou qualquer servidor estático de sua preferência.
 
-> **Importante:** a evolução do projeto adota **módulos ES nativos**. A partir da introdução desses módulos, abrir os arquivos diretamente via `file://` não será o fluxo suportado, pois o navegador bloqueia imports de módulos nesse protocolo. O desenvolvimento local deve ser feito com um servidor estático, como o Live Server.
+> **Importante:** o projeto não tem build, bundler nem `package.json`. Os scripts são clássicos (carregados com `defer`), mas o desenvolvimento local deve usar um servidor estático para que os caminhos relativos e as requisições às APIs funcionem como no GitHub Pages.
 
 > **Observação:** como os projetos dependem de APIs externas, é necessário ter conexão com a internet. A disponibilidade dos dados também depende do funcionamento de cada serviço e das configurações de acesso da respectiva API.
 
@@ -206,16 +240,15 @@ Essa estrutura permite desenvolver, testar e evoluir cada projeto de forma indep
 
 ---
 
-## 🧭 Decisões e baseline
+## ⚠️ Limitações conhecidas
 
-A evolução do projeto é documentada em etapas. A Etapa 1 registra o estado atual, as decisões arquiteturais e o baseline visual. A Etapa 2 registra a migração para a arquitetura Tailwind-only e a validação visual.
-
-- [Inventário da Etapa 1](./docs/etapa-1/inventario.md)
-- [Decisões técnicas](./docs/etapa-1/decisoes.md)
-- [Baseline visual](./docs/etapa-1/baseline/README.md)
-- [Verificação das APIs](./docs/etapa-1/api-check.json)
-- [Migração Tailwind-only da Etapa 2](./docs/etapa-2/fundacao.md)
-- [Validação da Etapa 2](./docs/etapa-2/validation.json)
+- **Tailwind Play CDN:** compila em tempo de execução, depende de rede e não é indicado para produção madura; emite um aviso no console. A versão está fixada em `3.4.17`.
+- **Jikan:** pode ficar indisponível ou lenta. O caminho de sucesso foi validado por contrato e replay controlado, não por uma resposta real durante a Etapa 3.
+- **Imagens da wikia (Naruto):** alguns servidores de imagem bloqueiam requisições fora do navegador; a validação visual depende do Chrome.
+- **Jiraiya:** a única imagem do personagem responde `404` e a wikia devolve um placeholder que ainda decodifica, então o fallback SVG não é acionado.
+- **Dados de demonstração do JJK:** são seis personagens ilustrativos, não um retrato completo do elenco.
+- **Sem suíte de testes automatizada:** a validação é manual, por checklist e navegador.
+- **Fora de escopo:** busca, filtros, paginação e páginas de detalhe não fazem parte da versão atual.
 
 ---
 
