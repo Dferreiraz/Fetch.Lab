@@ -11,7 +11,7 @@
 
 <p align="center">
   <img src="https://img.shields.io/badge/HTML5-E34F26?style=flat&logo=html5&logoColor=white" alt="HTML5">
-  <img src="https://img.shields.io/badge/CSS3-1572B6?style=flat&logo=css3&logoColor=white" alt="CSS3">
+  <img src="https://img.shields.io/badge/Tailwind_CSS-06B6D4?style=flat&logo=tailwindcss&logoColor=white" alt="Tailwind CSS">
   <img src="https://img.shields.io/badge/JavaScript-ES6%2B-yellow?style=flat&logo=javascript&logoColor=black" alt="JavaScript ES6+">
   <img src="https://img.shields.io/badge/Fetch_API-005571?style=flat&logo=googlechrome&logoColor=white" alt="Fetch API">
   <img src="https://img.shields.io/badge/Status-Em%20desenvolvimento-orange" alt="Status">
@@ -50,7 +50,7 @@ A proposta é avançar dos fundamentos da lógica de programação para aplicaç
 - Renderizar listas, cards e detalhes dinamicamente no DOM.
 - Desenvolver funcionalidades de busca, filtros e paginação.
 - Implementar estados de carregamento e tratamento de falhas nas requisições.
-- Construir interfaces responsivas utilizando HTML5 e CSS3.
+- Construir interfaces responsivas utilizando HTML5 e Tailwind CSS.
 - Consolidar conhecimentos de JavaScript por meio de projetos práticos.
 
 ---
@@ -102,9 +102,9 @@ Ao longo dos projetos, o laboratório aborda conceitos fundamentais para o desen
 **Desenvolvimento Front-End**
 
 - Estruturação semântica com HTML5.
-- Estilização com CSS3.
+- Estilização utilitária com Tailwind CSS.
 - Layouts responsivos com Flexbox e Grid.
-- Organização e reutilização de estilos.
+- Organização e reutilização de estilos por meio de utilities e configuração de tema.
 - Separação entre estrutura, apresentação e comportamento.
 
 ---
@@ -116,7 +116,7 @@ As seguintes tecnologias e ferramentas são utilizadas no desenvolvimento do Fet
 ### Front-End
 
 - **HTML5** — Estruturação e semântica das páginas.
-- **CSS3** — Estilização, layouts responsivos e apresentação visual.
+- **Tailwind CSS** — Estilização utilitária, layouts responsivos e identidade visual, carregada via Play CDN (`3.4.17`).
 - **JavaScript ES6+** — Lógica, interatividade, manipulação do DOM e consumo de APIs.
 - **Fetch API** — Realização de requisições HTTP para obtenção de dados externos.
 - **JSON** — Formato utilizado para representar e manipular os dados recebidos das APIs.
@@ -177,44 +177,30 @@ Fetch.Lab/
 ├── index.html
 ├── README.md
 │
-├── css/
-│   ├── global.css
-│   └── styles.css
-│
 ├── naruto/
 │   ├── index.html
-│   ├── script.js
-│   ├── css/
-│   │   ├── global.css
-│   │   └── styles.css
+│   ├── scripts.js
 │   └── assets/
 │
 ├── jujutsukaisen/
 │   ├── index.html
-│   ├── script.js
-│   ├── css/
-│   │   ├── global.css
-│   │   └── styles.css
+│   ├── scripts.js
 │   └── assets/
 │
 ├── rickandmorty/
 │   ├── index.html
 │   ├── script.js
-│   ├── css/
-│   │   ├── global.css
-│   │   └── styles.css
 │   └── assets/
 │
 └── dragonball/
     ├── index.html
     ├── script.js
-    ├── css/
-    │   ├── global.css
-    │   └── styles.css
     └── assets/
 ```
 
-A organização separa os estilos globais da página principal e mantém cada aplicação temática com seus próprios arquivos HTML, CSS, JavaScript e recursos visuais.
+A estrutura é **Tailwind-only**: não há folhas de estilo próprias. Cada `index.html` carrega o Tailwind Play CDN e declara um `tailwind.config` inline com as cores, famílias tipográficas, sombras e animações da sua identidade. O restante da apresentação usa utilities diretamente nas classes dos elementos.
+
+O JavaScript permanece em arquivos separados (`scripts.js` / `script.js`) e cuida apenas de dados, eventos e renderização — os cards criados dinamicamente recebem classes Tailwind no próprio `innerHTML`.
 
 Essa estrutura permite desenvolver, testar e evoluir cada projeto de forma independente dentro do mesmo repositório.
 
@@ -222,12 +208,14 @@ Essa estrutura permite desenvolver, testar e evoluir cada projeto de forma indep
 
 ## 🧭 Decisões e baseline
 
-A evolução do projeto é documentada em etapas. A Etapa 1 registra o estado atual, as decisões arquiteturais e o baseline visual antes de qualquer mudança estrutural.
+A evolução do projeto é documentada em etapas. A Etapa 1 registra o estado atual, as decisões arquiteturais e o baseline visual. A Etapa 2 registra a migração para a arquitetura Tailwind-only e a validação visual.
 
 - [Inventário da Etapa 1](./docs/etapa-1/inventario.md)
 - [Decisões técnicas](./docs/etapa-1/decisoes.md)
 - [Baseline visual](./docs/etapa-1/baseline/README.md)
 - [Verificação das APIs](./docs/etapa-1/api-check.json)
+- [Migração Tailwind-only da Etapa 2](./docs/etapa-2/fundacao.md)
+- [Validação da Etapa 2](./docs/etapa-2/validation.json)
 
 ---
 

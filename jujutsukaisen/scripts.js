@@ -5,7 +5,7 @@ async function fetchJujutsuCharacters() {
   const container = document.getElementById("cards-grid")
  
   // Mensagem de carregando enquanto a API responde
-  container.innerHTML = '<p class="loading">Carregando feiticeiros...</p>'
+  container.innerHTML = '<p class="text-fg">Carregando feiticeiros...</p>'
  
   try {
     // Faz a requisição para a API
@@ -31,16 +31,16 @@ async function fetchJujutsuCharacters() {
  
       // Cria o elemento HTML do Card
       const card = document.createElement("div")
-      card.className = "card"
+      card.className = "group relative flex flex-col overflow-hidden rounded-[14px] border border-line bg-surface transition duration-200 hover:-translate-y-1.5 hover:border-accent hover:shadow-curse"
       card.innerHTML = `
-        <div class="card-imagem">
-          <img src="${charImage}" alt="Imagem de ${charName}">
+        <div class="relative h-[320px] w-full overflow-hidden bg-surface">
+          <img src="${charImage}" alt="Imagem de ${charName}" class="h-full w-full object-contain object-top transition duration-300 group-hover:scale-105">
         </div>
  
-        <div class="card-corpo">
-          <h3 class="card-nome">${charName}</h3>
-          <p class="card-escola">Jujutsu Kaisen</p>
-          <p class="card-grau">${charRole}</p>
+        <div class="flex flex-col gap-2 p-7">
+          <h3 class="font-display text-[22px] leading-[1.15]">${charName}</h3>
+          <p class="font-label text-[15px] font-semibold tracking-[0.6px] text-accent">Jujutsu Kaisen</p>
+          <p class="mb-2 text-[15px] font-semibold text-gold">${charRole}</p>
         </div>
       `
  
@@ -49,7 +49,7 @@ async function fetchJujutsuCharacters() {
     })
   } catch (error) {
     console.error("Erro ao buscar dados:", error)
-    container.innerHTML = '<p class="loading">Erro ao carregar os dados. Tente atualizar a página.</p>'
+    container.innerHTML = '<p class="text-fg">Erro ao carregar os dados. Tente atualizar a página.</p>'
   }
 }
  

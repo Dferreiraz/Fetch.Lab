@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-BR" class="scroll-smooth motion-reduce:scroll-auto">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -11,27 +11,59 @@
     href="https://fonts.googleapis.com/css2?family=Kaisei+Decol&family=Rajdhani:wght@500;600;700&family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap"
     rel="stylesheet"
   />
-  <link rel="stylesheet" href="./css/styles.css" />
-  
+
+  <!-- Tailwind CSS via Play CDN -->
+  <script src="https://cdn.tailwindcss.com/3.4.17"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            ink: "#12151c",
+            surface: "#1b1f28",
+            line: "#2a2f3b",
+            fg: "#ede0c8",
+            muted: "#cfc2a6",
+            accent: "#ff6a13",
+            "accent-dark": "#d6560a",
+            gold: "#e3a857",
+            danger: "#d22b2b"
+          },
+          fontFamily: {
+            display: ['"Kaisei Decol"', "serif"],
+            label: ["Rajdhani", "sans-serif"],
+            body: ['"Zen Kaku Gothic New"', "sans-serif"]
+          },
+          boxShadow: {
+            soft: "0 20px 40px -20px rgba(0,0,0,0.6)"
+          },
+          backgroundImage: {
+            hero: "radial-gradient(circle at 15% 20%, rgba(255,106,19,0.08), transparent 45%), radial-gradient(circle at 85% 80%, rgba(210,43,43,0.08), transparent 45%)"
+          }
+        }
+      }
+    };
+  </script>
+
   <script src="./scripts.js" defer></script>
 </head>
-<body>
+<body class="min-h-screen bg-ink font-body text-[16px] leading-[1.6] text-fg antialiased">
 
   <!-- ===================== HEADER ===================== -->
-  <header class="header">
-    <div class="container header-content">
-      <a href="#" class="a-marca">Dattebayo<span>.API</span></a>
+  <header class="sticky top-0 z-50 border-b border-line bg-ink/85 backdrop-blur-[10px]">
+    <div class="mx-auto flex h-[72px] w-full max-w-[1160px] items-center justify-between px-7">
+      <a href="#" class="font-label text-[18px] font-bold tracking-[0.4px] text-fg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2 focus-visible:ring-offset-ink">Dattebayo<span class="text-accent">.API</span></a>
 
-      <div class="div-direita">
-        <span class="span-autor">DFerreira</span>
+      <div class="flex items-center gap-7">
+        <span class="font-label font-semibold tracking-[0.5px] text-muted max-[480px]:hidden">DFerreira</span>
         <a
-          class="a-github"
+          class="h-[26px] w-[26px] text-muted transition hover:-translate-y-0.5 hover:text-accent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2 focus-visible:ring-offset-ink"
           href="https://github.com/Dferreiraz"
           target="_blank"
           rel="noopener noreferrer"
           aria-label="Perfil no GitHub"
         >
-          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+          <svg class="h-full w-full" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
             <path
               d="M12 .5C5.65.5.5 5.65.5 12c0 5.08 3.29 9.39 7.86 10.91.58.1.79-.25.79-.56
               0-.28-.01-1.02-.02-2-3.2.7-3.88-1.54-3.88-1.54-.52-1.33-1.28-1.68-1.28-1.68
@@ -49,29 +81,29 @@
   </header>
 
   <!-- ===================== HERO ===================== -->
-  <section class="hero">
-    <div class="container hero-content">
+  <section class="relative overflow-hidden bg-ink bg-hero py-[88px]">
+    <div class="mx-auto grid w-full max-w-[1160px] grid-cols-1 items-center gap-[88px] px-7 min-[861px]:grid-cols-[0.9fr_1.1fr]">
 
-      <div class="div-media">
-        <div class="div-moldura">
-          <img src="./assets/img/naruto.svg" alt="Foto do Naruto">
+      <div class="relative">
+        <div class="relative overflow-hidden rounded-[14px] border border-line shadow-soft [clip-path:polygon(0_4%,4%_0,96%_0,100%_4%,100%_96%,96%_100%,4%_100%,0_96%)]">
+          <img src="./assets/img/naruto.svg" alt="Foto do Naruto" class="h-auto w-full">
         </div>
       </div>
 
-      <div class="div-texto">
-            <img src="./assets/img/naruto-logo.svg" alt="Logo de Naruto">
+      <div class="flex flex-col items-center gap-4 text-center min-[861px]:items-start min-[861px]:text-left">
+        <img src="./assets/img/naruto-logo.svg" alt="Logo de Naruto" class="h-auto max-w-full">
 
-        <h1 class="h1-titulo">
-          Bem-vindos ao <span>Consumo de API</span> do Naruto
+        <h1 class="text-[40px] leading-[1.15]">
+          Bem-vindos ao <span class="text-accent">Consumo de API</span> do Naruto
         </h1>
 
-        <p class="p-descricao">
+        <p class="mb-4 max-w-[600px] text-[17px] text-muted">
           Aqui você encontra informações sobre os personagens de Naruto
         </p>
 
-        <div class="div-botoes">
-          <button type="button" class="btn btn--primary">Veja agora</button>
-          <button type="button" class="btn btn--ghost">Saiba mais</button>
+        <div class="flex flex-wrap justify-center gap-4 min-[861px]:justify-start">
+          <button type="button" class="inline-flex items-center justify-center rounded-md bg-accent px-[29px] py-[14px] font-label text-[16px] font-semibold tracking-[0.5px] text-ink transition duration-150 hover:-translate-y-0.5 hover:bg-accent-dark hover:shadow-soft focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2 focus-visible:ring-offset-ink">Veja agora</button>
+          <button type="button" class="inline-flex items-center justify-center rounded-md border-[1.5px] border-line bg-transparent px-[29px] py-[14px] font-label text-[16px] font-semibold tracking-[0.5px] text-fg transition duration-150 hover:border-accent hover:text-accent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2 focus-visible:ring-offset-ink">Saiba mais</button>
         </div>
       </div>
 
@@ -79,21 +111,21 @@
   </section>
 
   <!-- ===================== CARDS ===================== -->
-  <section class="cards-section" id="personagens">
-     <div class="container">
+  <section class="cards-section bg-ink py-[88px]" id="personagens">
+    <div class="mx-auto w-full max-w-[1160px] px-7">
 
-      <span class="eyebrow">Bingo Book · Registro Shinobi</span>
-      <h2 class="section-title">Nossos <span>personagens</span></h2>
+      <span class="mb-2 block font-label text-[13px] font-semibold uppercase tracking-[1.8px] text-accent">Bingo Book · Registro Shinobi</span>
+      <h2 class="mb-12 text-[34px] leading-[1.15]">Nossos <span class="text-accent">personagens</span></h2>
 
-
-      <div class="cards-grid" id="cards-grid"></div>
+      <div class="grid grid-cols-1 gap-7 min-[481px]:grid-cols-[repeat(auto-fill,minmax(270px,1fr))]" id="cards-grid"></div>
+    </div>
   </section>
 
   <!-- ===================== FOOTER ===================== -->
-  <footer class="footer">
-    <div class="container">
-      <p>Desenvolvido por <strong>Davi Ferreira</strong></p>
+  <footer class="border-t border-line bg-surface py-7 text-center">
+    <div class="mx-auto w-full max-w-[1160px] px-7">
+      <p class="font-label text-[14px] tracking-[0.3px] text-muted">Desenvolvido por <strong class="text-accent">Davi Ferreira</strong></p>
     </div>
-  </footer >
+  </footer>
 </body>
 </html>
